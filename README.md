@@ -7,7 +7,7 @@ Integrantes:
 
 Betancourt Sandoval Denise
 
-Carmona Dominguez Ricardo Andres
+Carmona Domínguez Ricardo Andrés
 
 Padron Hernandez Jose Carmen
 
