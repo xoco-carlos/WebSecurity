@@ -1,9 +1,9 @@
 body {
-    background-image: url("/images/fondo.jpg");
+    background-image: url("../images/fondo.jpg");
 }
 @font-face{
     font-family:titulos;
-    src:url("/fonts/ELRIOTT2.TTF");
+    src:url("../fonts/ELRIOTT2.TTF");
 }
 
 .encabezado{
@@ -34,7 +34,7 @@ body {
     background-color:Blue;
 }
 hr{
-    background:url("/images/barra.png");
+    background:url("../images/barra.png");
     border:none;
     width:1024px;
     height:10px;
