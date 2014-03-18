@@ -1,0 +1,29 @@
+array(3) { 
+	[0]=> array(7) { 
+		["title"]=> string(13) "Articulo JSON" 
+		["Contenido"]=> string(44) "Esto funciona si lo ves desde el webservice " 
+		["field_image"]=> string(77) "http://192.168.1.68/drupal/sites/default/files/field/image/003tacodeperro.jpg" 
+		["nid"]=> string(1) "3" 
+		["Post date"]=> string(23) "Mon, 03/17/2014 - 17:33" 
+		["Tags"]=> string(4) "json" 
+		["Name"]=> string(5) "admin" 
+	} 
+	[1]=> array(7) { 
+		["title"]=> string(10) "Articulo 2" 
+		["Contenido"]=> string(22) "Este es otro articulo " 
+		["field_image"]=> string(71) "http://192.168.1.68/drupal/sites/default/files/field/image/bolas-ag.jpg" 
+		["nid"]=> string(1) "2" 
+		["Post date"]=> string(23) "Sun, 03/16/2014 - 17:26" 
+		["Tags"]=> string(1) "2" 
+		["Name"]=> string(5) "admin" 
+	} 
+	[2]=> array(7) { 
+		["title"]=> string(18) "Esto es una prueba" 
+		["Contenido"]=> string(49) "Esto es un articulo de prueba creado con drupal. " 
+		["field_image"]=> string(67) "http://192.168.1.68/drupal/sites/default/files/field/image/cert.jpg" 
+		["nid"]=> string(1) "1" 
+		["Post date"]=> string(23) "Sun, 03/16/2014 - 17:24" 
+		["Tags"]=> string(6) "prueba" 
+		["Name"]=> string(24) "Anonymous (not verified)" 
+	} 
+}
