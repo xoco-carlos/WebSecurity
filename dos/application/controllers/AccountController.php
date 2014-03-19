@@ -27,8 +27,14 @@ class AccountController extends Zend_Controller_Action
 			throw new Exception("Error 404 D:");
 		}
     }
-    public function newAction()
-    {
-        // action body
-    }
+	public function newAction(){
+   	$genres = array("Electronic",
+			"Country",
+			"Rock",
+			"R & B",
+			"Hip-Hop",
+			"Heavy-Metal",
+			"Alternative Rock");
+		$this->view->genres=$genres;
+	}
 }
