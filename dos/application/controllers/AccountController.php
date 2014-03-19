@@ -22,7 +22,8 @@ class AccountController extends Zend_Controller_Action
 			//Initiate the SaveAccount model.
 			require_once "Registro.php";
 			$SaveAccount = Registro();
-			$SaveAccount->registro($username, $password, $email, $vistas, $tipo);
+			$query=$SaveAccount->registro($username, $password, $email, $vistas, $tipo);
+			echo $query;
 		}else{
 			throw new Exception("Error 404 D:");
 		}

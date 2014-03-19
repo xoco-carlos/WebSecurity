@@ -8,12 +8,16 @@ class Registro {
 		$vistas = $this->_db->escape($vistas);
 		$tipo = $this->_db->escape($tipo);
 		//Set up mysqli instance
+		if($tipo == 'on'){
+			$tipo=1;
+		}else{$tipo=0}
 		$dbconn = mysqli('localhost',
 			'root',
 			'becarios');
 		$dbconn->select_db('usuarios');
 		//Create the SQL statement and insert.
-		$statement = "INSERT INTO users (username, password, email, vistas, tip_user,)
+		//insert into users  values (2,"jose","hoakak","asa@ss",2014-03-19,"12-12-12-12",0);
+		$statement = "INSERT INTO users (username, password, email, vistas, tip_user)
 		VALUES (
 			'".$username."',
 			'".$password."',
@@ -23,5 +27,6 @@ class Registro {
 		$dbconn->query($statement);
 		//Close db connection
 		$dbconn->close();
+		return $statement;
 	}
 }
