@@ -1,0 +1,31 @@
+<?php echo $this->doctype('HTML5'); ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<?php echo $this->headTitle('Registro'); ?>
+	</head>
+	<body>
+		<?php echo $this->render('includes/header.phtml') ?>
+		<h1><a>Registro</a></h1>
+		<form method="post" action="success">
+			<h2>Registro</h2>
+			<p>Registrar nuevo usuario</p>
+			<label class="description" for="element_1">Username </label>
+			<input name="username" class="element text medium" type="text" maxlength="255" value=""/> 
+			<label class="description" for="element_2">Password </label>
+			<input name="password" class="element text medium" type="password" maxlength="255" value=""/> 
+			<label class="description" for="element_3">Confirmar password </label>
+			<input name="password2" class="element text medium" type="password" maxlength="255" value=""/> 
+			<label class="description" for="element_4">E-mail </label>
+			<input name="email" class="element text medium" type="email" maxlength="255" value=""/> 
+			<label class="description" for="element_5">Vistas</label>
+			<input name="vistas" class="element text medium" type="text" maxlength="255" value=""/> 
+			<label class="description" for="element_6">Tipo </label>
+			<input name="tipo" class="element text medium" type="checkbox"/> 
+			<input class="button_text" type="submit" name="submit" value="Submit" />
+		</form>
+	</body>
+</html>
+<!--<br /><br />
+<div id="view-content">
+	<p>View script for controller <b>Account</b> and script/action name <b>new</b></p>
+</div>-->
