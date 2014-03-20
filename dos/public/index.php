@@ -13,7 +13,9 @@ set_include_path(implode(PATH_SEPARATOR, array(
     realpath(APPLICATION_PATH . '/../library'),
     get_include_path(),
 )));
-
+#$config = new Zend_Config_Ini(APPLICATION_PATH.'/config.ini', 'general');
+#$db = Zend_Db::factory($config->db);
+#Zend_Db_Table::setDefaultAdapter($db);
 /** Zend_Application */
 require_once 'Zend/Application.php';
 

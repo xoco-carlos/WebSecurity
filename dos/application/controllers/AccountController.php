@@ -13,17 +13,17 @@ class AccountController extends Zend_Controller_Action
     public function successAction()
     {
 		if($this->_request->isPost()){
-			$username=$this->_request->getPost('username');
-			$password=$this->_request->getPost('password');
-			$email=$this->_request->getPost('email');
-			$vistas=$this->_request->getPost('vistas');
-			$tipo=$this->_request->getPost('tipo');
+			$username	= $this->_request->getPost('username');
+			$password	= $this->_request->getPost('password');
+			$email		= $this->_request->getPost('email');
+			$vistas		= $this->_request->getPost('vistas');
+			$tipo			= $this->_request->getPost('tipo');
 			
 			//Initiate the SaveAccount model.
-			require_once "Registro.php";
-			$SaveAccount = Registro();
+			require_once "/var/www/dos/application/models/Registro.php";
+			$SaveAccount = new Registro();
 			$query=$SaveAccount->registro($username, $password, $email, $vistas, $tipo);
-			echo $query;
+			#echo $query;
 		}else{
 			throw new Exception("Error 404 D:");
 		}
