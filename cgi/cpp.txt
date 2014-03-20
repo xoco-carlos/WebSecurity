@@ -1,0 +1,1 @@
+sudo g++ pcon.cpp -o get.exe -I/usr/include/mysql -L/usr/lib/mysql -lmysqlclient -lstdc++
