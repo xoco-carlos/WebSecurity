@@ -1,0 +1,6 @@
+name = pbsc Module 2
+description = Modulo que implementa funciones para obtener articulos almacenados en el servidor de drupal.
+dependencies[] = REST Server
+dependencies[] = Views JSON
+files[] = pbscM2.module
+core = 7.x

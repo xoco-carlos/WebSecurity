@@ -1,0 +1,42 @@
+<?php
+/**
+ * Implements hook_menu()
+ */
+function restget_menu() {
+    $items['test'] = array(
+        'title' => 'Test',
+        'page callback' => 'restget_page',
+        'access callback' => TRUE,
+        'type' => MENU_NORMAL_ITEM
+    );
+    return $items;
+}
+/**
+ * Get the element as json format.
+ * @param $uri the URI to get
+ * @return array
+ */
+function _get_element() {
+    // Get the arrays with all the articles.
+    $uri = "http://drupal.xoco.in/drupal7/?q=json";
+    $response = file_get_contents($uri); 
+    //$prueba=json_decode($response,TRUE);
+    // This will return an array, if you want an object, use json_decode($response) directly. 
+    return json_decode($response,TRUE);//$prueba;
+}
+/**
+ * Page callback
+ */
+function restget_page() {
+    $element = _get_element();
+		$noArt=count($element);
+		for ($i = 0 ;$i < $noArt; $i++){
+			echo "<H1>Titulo: ". $element[$i]['title']."</H1><br>";
+			echo "<H2>Autor: ". $element[$i]['autor']."</H2><br>";
+			echo "<H2>Fecha: ". $element[$i]['Post date']."</H2><br>";
+			echo "<p>". $element[$i]['contenido']."</p><br>";
+			echo "<img src='". $element[$i]['Image']."'/><br>";
+		}
+    return 1;
+}
+?>
