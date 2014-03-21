@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 	<body>
-		<?php include('includes/alerts.php')?>
 		<form method="post" action="controllers/addUserController.php">
 			<h2>Registro</h2>
 			<p>Registrar nuevo usuario</p></br>

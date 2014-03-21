@@ -1,6 +1,7 @@
 <?php
-	include('../models/User.php');
-	include('../models/View.php');
+	include_once('../models/User.php');
+	include_once('../models/View.php');
+	include_once('../includes/alerts.php');
 	$username	= filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
 	$password	= filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 	$password2	= filter_input(INPUT_POST, 'password2',FILTER_SANITIZE_STRING);
@@ -8,7 +9,7 @@
 	$type			= filter_input(INPUT_POST, 'type', 		FILTER_SANITIZE_STRING);
 	$type=='on'?$type=1:$type=0;
 	if($password!=$password2){
-		header('Location:'.$_SERVER["HTTP_REFERER"].'?mensaje=Contrasenas no coinciden');
+		message("error","Passwords doesn't match");
 	}
 	$user=new User();
    $view=new View();
@@ -25,9 +26,11 @@
 		}
 		$view->getDB()->CloseConnection();
 		$user->getDB()->CloseConnection();
-		header('Location:'.$_SERVER["HTTP_REFERER"].'?mensaje=User '.$username.' created successfully');
+		message("success","User created successfully");
+		#header('Location:'.$_SERVER["HTTP_REFERER"].'?mensaje=User '.$username.' created successfully');
    }
 	else{
-		header('Location:'.$_SERVER["HTTP_REFERER"].'?mensaje=User '.$username.' already exists');
+		message("error","User already exists");
+		#header('Location:'.$_SERVER["HTTP_REFERER"].'?mensaje=User '.$username.' already exists');
 	}
 ?>

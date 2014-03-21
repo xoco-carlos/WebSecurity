@@ -1,5 +1,5 @@
 <?php
-	if(isset($_REQUEST['mensaje'])){
-		echo '<h1>'.$_REQUEST['mensaje'].'</h1>';
+	function message($tipo,$mensaje){
+		header('Location:'.$tipo.'.php?mensaje='.$mensaje.'&referer='.$_SERVER["HTTP_REFERER"]);
 	}
 ?>

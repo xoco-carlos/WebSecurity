@@ -1,5 +1,6 @@
 <?php
-	if(isset($_SESSION)){
+	session_start();
+	if(isset($_SESSION['priv'])){
 		if($_SESSION['priv']==1){
 			$option='
 				<a href=view/addUser.php>Add User</a>|

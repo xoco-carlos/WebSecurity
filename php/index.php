@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php 
+	include_once("controllers/indexController.php");
+?>
 <html lang="en">
     <head>
 		<meta charset="utf-8" />

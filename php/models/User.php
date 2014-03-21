@@ -14,7 +14,11 @@
 			$result=array();
 			$query='SELECT userID,name FROM users WHERE name="'.$name.'";';
 			$result=$this->db->ExecuteSQL($query);
-#			$this->db->CloseConnection();
+			return $result;
+		}
+		function login($name,$password){
+			$query='SELECT userID,type FROM users WHERE name="'.$name.'" AND password=SHA("'.$password.'");';
+			$result=$this->db->ExecuteSQL($query);
 			return $result;
 		}
 		/*Funcion que inserta un usuario a la BD*/
@@ -28,7 +32,6 @@
 					);';
 			$this->db->ExecuteSQL($query);
 			$result=$this->db->LastID();		
-#			$this->db->CloseConnection();
 			return $result;
 			#return $query;
 		}
