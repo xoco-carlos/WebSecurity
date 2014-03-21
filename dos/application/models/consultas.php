@@ -8,7 +8,7 @@ class consultas{
 	
 	function consulta_id($id_user){
 		$database = new conectmysql();
-		$Consulta = new querymysql( $database, "SELECT vistas.nodo FROM users_has_vistas, vistas WHERE users_has_vistas.id='".$id_user."' AND vistas.idvistas= user_has_vistas.vistas_idvistas");
+		$Consulta = new querymysql( $database, "SELECT vistas.nodo FROM users_has_vistas, vistas WHERE users_has_vistas.users_id='".$id_user."' AND vistas.idvistas= user_has_vistas.vistas_idvistas");
 		$reg = $Consulta->FetchArray();    
 		$Consulta->Cerrar();
 		return $reg;
@@ -21,29 +21,21 @@ class consultas{
 	}
 	
 	//asocia un nodo a un usuario
-	function insert_vista_usuario($idUser,$nodo,$posicion){
+	function insert_vista_usuario($id_user,$nodo){
 		$database = new conectmysql();
 		$idVista = new querymysql( $database, "SELECT idvistas FROM vistas WHERE nodo=".$nodo."");
 		$idVista->Cerrar();
-		$Consulta = new querymysql( $database, "INSERT INTO user_has_vistas VALUES ({$idUser},{$idVista},{$posicion})");
+		$Consulta = new querymysql( $database, "INSERT INTO users_has_vistas VALUES ({$id_user},{$idVista})");
 		$Consulta->Cerrar();
 	}
 	
-	
-	function update_vista($id_user,$posicion,$nodo){
+	//Actualiza
+	function update_vista($id_user,$nodo){
 	$database = new conectmysql();
 	$idVista = new querymysql( $database, "SELECT idvistas FROM vistas WHERE nodo=".$nodo."");
 	$idVista->Cerrar();
-	$Consulta = new querymysql( $database, "UPDATE user_has_vistas set vistas_idvistas={$idVista} WHERE users_id='".$id_user."' AND posicion='".$posicion."'	");
+	$Consulta = new querymysql( $database, "UPDATE users_has_vistas SET vistas_idvistas={$idVista} WHERE users_id='".$id_user."' ");
     $Consulta->Cerrar();
 	}
-
-	
-
-
 }
-
-
-
-
 ?>
