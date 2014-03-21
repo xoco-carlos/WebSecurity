@@ -25,7 +25,56 @@ function getTitulo($nodo){
 	}
 	return $titulo;
 }
+function getContenido($nodo){
+	$contenido = "";
+	$articulos = getArticles();
+	$noArt = count($articulos);
+	for ($i = 0 ;$i < $noArt; $i++){
+		if ($articulos[$i]['nid']==$nodo){
+			$contenido=$articulos[$i]['contenido'];
+			break;
+		}
+	}
+	return $contenido;
+}
+function getFecha($nodo){
+	$fecha = "";
+	$articulos = getArticles();
+	$noArt = count($articulos);
+	for ($i = 0 ;$i < $noArt; $i++){
+		if ($articulos[$i]['nid']==$nodo){
+			$fecha=$articulos[$i]['Post date'];
+			break;
+		}
+	}
+	return $fecha;
+}
 
+function getAutor($nodo){
+	$autor = "";
+	$articulos = getArticles();
+	$noArt = count($articulos);
+	for ($i = 0 ;$i < $noArt; $i++){
+		if ($articulos[$i]['nid']==$nodo){
+			$autor=$articulos[$i]['autor'];
+			break;
+		}
+	}
+	return $autor;
+}
+
+function getImagen($nodo){
+	$imagen = "";
+	$articulos = getArticles();
+	$noArt = count($articulos);
+	for ($i = 0 ;$i < $noArt; $i++){
+		if ($articulos[$i]['nid']==$nodo){
+			$imagen=$articulos[$i]['Image'];
+			break;
+		}
+	}
+	return $imagen;
+}
 function restget_page() {
     $element = _get_element();
 		$noArt=count($element);
@@ -47,8 +96,10 @@ function restget_page() {
         <title></title>
     </head>
     <body>
-        <?php
-            restget_page();
-        ?>
+        <H1><?php echo $getTitulo(2); ?></H1>
+		<H3><?php echo $getFecha(2); ?></H3>
+		<H3><?php echo $getAutor(2); ?></H3>
+		<p><?php echo $getContenido(2); ?></p>
+		<img src='<?php echo $getImagen(2); ?>'/>
     </body>
 </html>
