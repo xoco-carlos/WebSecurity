@@ -1,5 +1,6 @@
 <?php
-
+	include 'getdrupal.php';
+	$articulo = new Articulos;
 ?>
 
 <!DOCTYPE html>
@@ -25,26 +26,26 @@
         <div id="vertical-margin">
         <div class="column">
           <div class="portlet">
-            <div class="portlet-header">Gmail</div>
+            <div class="portlet-header"><?php echo $articulo->getTitulo(1); ?></div>
             <div class="portlet-content">
-                <a title="http://mail.google.com/" href="http://mail.google.com/">
-                    <img src="images/cert.png" alt="gmail" width="130px" height="140px"/>
+                <a title=" <?php echo $articulo->getTitulo(1); ?> " href="articulo.php?art=1">
+                    <img src=" <?php echo $articulo->getImagen(1); ?> " width="130px" height="140px"/>
                 </a>  
             </div>
           </div>
          <div class="portlet">
-            <div class="portlet-header">Becarios: Seguridad de la Información</div>
+            <div class="portlet-header"><?php echo $articulo->getTitulo(2); ?></div>
             <div class="portlet-content">
-                <a title="http://www.salonenlinea.unam.mx/habitatpuma/becarios/" href="http://www.salonenlinea.unam.mx/habitatpuma/becarios/">
-                    <img src="images/cert.png" alt="SI" width="130px" height="140px"/>
+                <a title=" <?php echo $articulo->getTitulo(2); ?> " href="articulo.php?art=2">
+                    <img src=" <?php echo $articulo->getImagen(2); ?> " width="130px" height="140px"/>
                 </a>  
             </div>
           </div>
          <div class="portlet">
-            <div class="portlet-header">Facebook</div>
+            <div class="portlet-header"><?php echo $articulo->getTitulo(3); ?></div>
             <div class="portlet-content">
-                <a title="" href="https://www.facebook.com/">
-                    <img src="images/cert.png" alt="facebook" width="130px" height="140px"/>
+                <a title=" <?php echo $articulo->getTitulo(3); ?> " href="articulo.php?art=3">
+                    <img src=" <?php echo $articulo->getImagen(3); ?> " width="130px" height="140px"/>
                 </a>  
             </div>
           </div>  
@@ -53,26 +54,26 @@
         <div class="column">
  
           <div class="portlet">
-            <div class="portlet-header">Seguridad</div>
+            <div class="portlet-header"><?php echo $articulo->getTitulo(4); ?></div>
             <div class="portlet-content">
-                <a title="http://www.seguridad.unam.mx/" href="http://www.seguridad.unam.mx/">
-                    <img src="images/cert.png" alt="http://www.seguridad.unam.mx/" width="130px" height="140px"/>
+                <a title=" <?php echo $articulo->getTitulo(4); ?> " href="articulo.php?art=4">
+                    <img src="<?php echo $articulo->getImagen(4); ?>" width="130px" height="140px"/>
                 </a>  
             </div>
           </div>
          <div class="portlet">
-            <div class="portlet-header">Twitter</div>
+            <div class="portlet-header"><?php echo $articulo->getTitulo(5); ?></div>
             <div class="portlet-content">
-                <a title="https://twitter.com/" href="https://twitter.com/">
-                    <img src="images/cert.png" alt="https://twitter.com/" width="130px" height="140px"/>
+                <a title=" <?php echo $articulo->getTitulo(5); ?> " href="articulo.php?art=5">
+                    <img src="<?php echo $articulo->getImagen(5); ?>" width="130px" height="140px"/>
                 </a>  
             </div>
           </div>
          <div class="portlet">
-            <div class="portlet-header">Outlook web App</div>
+            <div class="portlet-header"><?php echo $articulo->getTitulo(6); ?></div>
             <div class="portlet-content">
-                <a title="https://login.microsoftonline.com/login.srf/" href="https://login.microsoftonline.com/login.srf/">
-                    <img src="images/cert.png" alt="https://login.microsoftonline.com/login.srf/" width="130px" height="140px"/>
+                <a title=" <?php echo $articulo->getTitulo(6); ?> " href="articulo.php?art=6">
+                    <img src="<?php echo $articulo->getImagen(6); ?>" width="130px" height="140px"/>
                 </a>  
             </div>
           </div>  
@@ -80,26 +81,26 @@
         <div class="column">
  
           <div class="portlet">
-            <div class="portlet-header">9GAG - Just For Fun</div>
+            <div class="portlet-header"><?php echo $articulo->getTitulo(7); ?></div>
             <div class="portlet-content">
-                <a title="http://9gag.com/" href="http://9gag.com/">
-                    <img src="images/cert.png" alt="gmail" width="130px" height="140px"/>
+                <a title=" <?php echo $articulo->getTitulo(7); ?> " href="articulo.php?art=7">
+                    <img src="<?php echo $articulo->getImagen(7); ?>" width="130px" height="140px"/>
                 </a>  
             </div>
           </div>
          <div class="portlet">
-            <div class="portlet-header">GitHub</div>
+            <div class="portlet-header"><?php echo $articulo->getTitulo(8); ?></div>
             <div class="portlet-content">
-                <a title="https://github.com/" href="https://github.com/">
-                    <img src="images/cert.png" alt="https://github.com/" width="130px" height="140px"/>
+                <a title=" <?php echo $articulo->getTitulo(8); ?> " href="articulo.php?art=8">
+                    <img src="<?php echo $articulo->getImagen(8); ?>" width="130px" height="140px"/>
                 </a>  
             </div>
           </div>
          <div class="portlet">
-            <div class="portlet-header">Noticias</div>
+            <div class="portlet-header"><?php echo $articulo->getTitulo(9); ?></div>
             <div class="portlet-content">
-                <a title="http://www.seguridad.unam.mx/noticia/" href="http://www.seguridad.unam.mx/noticia/">
-                    <img src="images/cert.png" alt="http://www.seguridad.unam.mx/noticia/" width="130px" height="140px"/>
+                <a title=" <?php echo $articulo->getTitulo(9); ?> " href="articulo.php?art=9">
+                    <img src="<?php echo $articulo->getImagen(9); ?>" width="130px" height="140px"/>
                 </a>  
             </div>
           </div>  
