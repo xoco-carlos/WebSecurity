@@ -18,7 +18,7 @@ function getTitulo($nodo){
 	$articulos = getArticles();
 	$noArt = count($articulos);
 	for ($i = 0 ;$i < $noArt; $i++){
-		if ($articulos[$i]['nid']==$nodo){
+		if ($articulos[$i]['Nid']==$nodo){
 			$titulo=$articulos[$i]['title'];
 			break;
 		}
@@ -30,7 +30,7 @@ function getContenido($nodo){
 	$articulos = getArticles();
 	$noArt = count($articulos);
 	for ($i = 0 ;$i < $noArt; $i++){
-		if ($articulos[$i]['nid']==$nodo){
+		if ($articulos[$i]['Nid']==$nodo){
 			$contenido=$articulos[$i]['contenido'];
 			break;
 		}
@@ -42,7 +42,7 @@ function getFecha($nodo){
 	$articulos = getArticles();
 	$noArt = count($articulos);
 	for ($i = 0 ;$i < $noArt; $i++){
-		if ($articulos[$i]['nid']==$nodo){
+		if ($articulos[$i]['Nid']==$nodo){
 			$fecha=$articulos[$i]['Post date'];
 			break;
 		}
@@ -55,7 +55,7 @@ function getAutor($nodo){
 	$articulos = getArticles();
 	$noArt = count($articulos);
 	for ($i = 0 ;$i < $noArt; $i++){
-		if ($articulos[$i]['nid']==$nodo){
+		if ($articulos[$i]['Nid']==$nodo){
 			$autor=$articulos[$i]['autor'];
 			break;
 		}
@@ -68,25 +68,14 @@ function getImagen($nodo){
 	$articulos = getArticles();
 	$noArt = count($articulos);
 	for ($i = 0 ;$i < $noArt; $i++){
-		if ($articulos[$i]['nid']==$nodo){
+		if ($articulos[$i]['Nid']==$nodo){
 			$imagen=$articulos[$i]['Image'];
 			break;
 		}
 	}
 	return $imagen;
 }
-function restget_page() {
-    $element = _get_element();
-		$noArt=count($element);
-		for ($i = 0 ;$i < $noArt; $i++){
-			echo "<H1>Titulo: ". $element[$i]['title']."</H1><br>";
-			echo "<H2>Autor: ". $element[$i]['autor']."</H2><br>";
-			echo "<H2>Fecha: ". $element[$i]['Post date']."</H2><br>";
-			echo "<p>". $element[$i]['contenido']."</p><br>";
-			echo "<img src='". $element[$i]['Image']."'/><br>";
-		}
-    return 1;
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -96,10 +85,10 @@ function restget_page() {
         <title></title>
     </head>
     <body>
-        <H1><?php echo $getTitulo(2); ?></H1>
-		<H3><?php echo $getFecha(2); ?></H3>
-		<H3><?php echo $getAutor(2); ?></H3>
-		<p><?php echo $getContenido(2); ?></p>
-		<img src='<?php echo $getImagen(2); ?>'/>
+        <H1><?php echo getTitulo(1); ?></H1>
+		<H3><?php echo getFecha(1); ?></H3>
+		<H3><?php echo getAutor(1); ?></H3>
+		<p><?php echo getContenido(1); ?></p>
+		<img src=' <?php echo $getImagen(1); ?>'/>
     </body>
 </html>
