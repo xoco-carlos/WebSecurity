@@ -14,6 +14,10 @@
 		<link rel="stylesheet" href="css/estilos.css"> 
 	</head>
 	<body>
-	<?php include_once("includes/header.php");?>
+		<div id="vertical-margin">
+	<?php include_once("includes/header.php");
+				printNodes(printHeader());
+	?>
+		</div>
 	</body>
 <html>

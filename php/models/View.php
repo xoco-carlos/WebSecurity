@@ -1,5 +1,5 @@
 <?php
-	include_once('../config/MySQL.php');
+	include_once dirname(__FILE__) . '/../config/MySQL.php';
 	class View{
 		private $userID;
 		private $viewID;
@@ -13,6 +13,16 @@
 		function getAdminViews(){
 			$result=array();
 			$query='SELECT viewID FROM views WHERE userID="1";';
+			foreach($this->db->ExecuteSQL($query) as $value){
+				$result[]=$value['viewID'];
+			}
+			#$this->db->CloseConnection();
+			return $result;
+		}
+		/*Funcion para obterner la vistas de un usuario*/
+		function getUserViews($user){
+			$result=array();
+			$query='SELECT viewID FROM views WHERE userID="'.$user.'";';
 			foreach($this->db->ExecuteSQL($query) as $value){
 				$result[]=$value['viewID'];
 			}
