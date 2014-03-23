@@ -1,5 +1,5 @@
 <?php
-//Consulta: Obtiene el id de usuario, tipo, y el articulo de cada casilla.
+//Clase Consultas.php
 
 class consultas{
 
@@ -8,11 +8,21 @@ class consultas{
 	
 	function consulta_id($id_user){
 		$database = new conectmysql();
-		$Consulta = new querymysql( $database, "SELECT vistas.nodo FROM users_has_vistas, vistas WHERE users_has_vistas.users_id='".$id_user."' AND vistas.idvistas= user_has_vistas.vistas_idvistas");
+		$Consulta = new querymysql( $database, "SELECT vistas.nodo FROM users_has_vistas, vistas WHERE users_has_vistas.users_id='".$id_user."' AND vistas.idvistas= users_has_vistas.vistas_idvistas");
 		$reg = $Consulta->FetchArray();    
 		$Consulta->Cerrar();
 		return $reg;
 	}
+	
+	//Función que muestra todos los username
+	function consulta_username(){
+		$database = new conectmysql();
+		$Consulta = new querymysql( $database, "SELECT users.name FROM users");
+		$reg = $Consulta->FetchArray();    
+		$Consulta->Cerrar();
+		return $reg;
+	}
+	
 	// inserta los nodos nuevos que se generen al crear un nuevo articulo o publicación
 	function insert_vista($nodo){
 		$database = new conectmysql();
