@@ -13,16 +13,13 @@
 
 <TD VALIGN=MIDDLE  WIDTH=100  BGCOLOR="Silver">
 <blockquote>
-<form name="formulario" method="post" action="./get.exe">
+<form method="post" action="#">
      Usuario:<br> <input type="text" name="user"/>
       <br>
-<!--<input type="hidden" name="pass" value=""/>
-</form>-->
-     Contraseña: <br><input type="password" name="pass"/>
+     Contraseña: <br><input type="password" id="pass"/>
       <br>
-      <button type="button" onClick='formulario.pass.value = Sha1.hash(pass.value);document.formulario.submit();'>Enviar</button>
-
-<!--<input type="submit" value="Entrar"/>-->
+		<input type="hidden" name="pass" id="ciph" readonly/>
+<input onclick="ciph.value = Sha1.hash(pass.value)" type="submit" value="Entrar"/>
 </blockquote>
 </TD>
 

@@ -1,0 +1,25 @@
+<?
+session_start();
+?>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <title> Ventas... </title>
+</head>
+
+<body>
+<?
+
+$_SESSION["id"]= $_POST["id"];
+$_SESSION["ty"]= $_POST["ty"];
+echo $_SESSION["id"];
+echo "<br>";
+echo $_SESSION["ty"];
+
+
+?>
+</body>
+</html>
+
+
