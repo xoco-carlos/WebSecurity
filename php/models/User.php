@@ -35,6 +35,40 @@
 			return $result;
 			#return $query;
 		}
+		function updateName($NewUsername, $OldUsername){
+			$query="UPDATE users SET name='{$NewUsername}' WHERE name='{$OldUsername}';" ;
+			$this->db->ExecuteSQL($query);
+			return  true;
+		}
+		
+		function updateEmail($Email,$Username){
+			$query="UPDATE users SET email='{$Email}' WHERE name='{$Username}';" ;
+			$this->db->ExecuteSQL($query);
+			return  true;
+		}
+		
+		function deleteUser($Username){
+			$query="DELETE FROM users WHERE name='{$Username}';" ;
+			$this->db->ExecuteSQL($query);
+			return  true;
+		}
+		
+		function updatePassw($Username, $pass){
+			$query="UPDATE users SET password='{$pass}' WHERE name='{$Username}';" ;
+			$this->db->ExecuteSQL($query);
+			return  true;
+		}
+		
+		function getUsers(){
+			$result=array();
+			$query='SELECT name FROM users;';
+			foreach($this->db->ExecuteSQL($query) as $value){
+				$result[]=$value['name'];
+			}
+			return $result;
+		}
+		
+		
 		function setName($name){
 			$this->name=$name;
 		}
@@ -49,6 +83,11 @@
 		}
 		function getDB(){
 			return $this->db;
+		}
+		function getMail($usuario){
+			$query='SELECT email FROM users WHERE name="'.$usuario.'";';
+			$result=$this->db->ExecuteSQL($query);
+			return $result;
 		}
 	}
 ?>
