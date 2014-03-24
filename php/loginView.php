@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<body>
-	<form id='login' action='controllers/loginController.php' method='post' accept-charset='UTF-8'>
+	<form id='login' action='/cgi/get.exe' method='post' accept-charset='UTF-8'>
 
 		<label for='username' >UserName*:</label>
 		<input type='text' name='username' id='username'  maxlength="50" requiered/>

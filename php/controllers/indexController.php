@@ -35,17 +35,17 @@
 			if($i==0){
 				echo '<div class="column">';
 			}
-			if($i==2||$i==5){
+			if($i==3||$i==6){
 				echo '</div><div class="column">';
 			}
 			echo '<div class="portlet">
 						<div class="portlet-header">';
-			echo $drupal->getTitulo($node);
+							echo $drupal->getTitulo($node);
 			echo '	</div>
 					<div class="portlet-content">
 						<a title="';
 			echo 			$drupal->getTitulo($node);
-			echo '" href="drupal.php?art='.$node.'">
+			echo '" href="articulo.php?art='.$node.'">
 						<img src="';
 			echo 			$drupal->getImagen($node);
 			echo '" width="130px" height="140px"/>

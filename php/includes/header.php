@@ -3,21 +3,38 @@
 	if(isset($_SESSION['priv'])){
 		if($_SESSION['priv']==1){
 			$option='
-				<a href=view/addUser.php>Add User</a>|
-				<a href=view/setView.php>Edit View</a>|
-				<a href=logout.php>Log out</a>
+				<div class="barra">
+					<ul id="tope">
+						<li><a href=view/addUser.php>Add User</a></li>
+						<li><a href=view/setView.php>Edit View</a></li>
+						<li><a href=logout.php>Log out</a></li>
+					</ul>
+				</div>
+				</br></br></br>
 			'; 
 		}
 		else{
 			$option='
-				<a href=view/setView.php>Edit View</a>|
-				<a href=logout.php>Log out</a>
+				<div class="barra">
+					<ul id="tope">
+						<li><a href=view/setView.php>Edit View</a></li>
+						<li><a href="contenido.php">Lista de Contenido</a></li>
+						<li><a href=logout.php>Log out</a></li>
+					</ul>
+				</div>
+				</br></br></br>
 			';
 		}
 	}
 	else{
 		$option='
-			<a href=loginView.php>Log In</a>
+			<div class="barra">
+            <ul id="tope">
+                <li><a href=/cgi/>Acceder</a></li>
+                <li><a href="contenido.php">Lista de Contenido</a></li>
+            </ul>
+        </div>
+        </br></br></br>
 		';
 	}
 ?>
