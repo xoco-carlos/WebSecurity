@@ -3,8 +3,8 @@
 
 class consultas{
 
-	include conectmysql;
-	include querymysql;
+	include ("conectmysql.php");
+	include ("querymysql.php");
 	
 	function consulta_id($id_user){
 		$database = new conectmysql();
