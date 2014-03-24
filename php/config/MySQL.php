@@ -74,18 +74,22 @@ class MySQL {
 	// Executes MySQL query
 	function ExecuteSQL($query){
 		$this->lastQuery 	= $query;
+		mysql_query('BEGIN;',$this->databaseLink);
 		if($this->result 	= mysql_query($query, $this->databaseLink)){
 			$this->records 	= @mysql_num_rows($this->result);
 			$this->affected	= @mysql_affected_rows($this->databaseLink);
 			
 			if($this->records > 0){
 				$this->ArrayResults();
+				mysql_query('COMMIT;',$this->databaseLink);
             return $this->arrayedResult;
 			}else{
+				mysql_query('COMMIT;',$this->databaseLink);
 				return true;
 			}
 		}else{
 			$this->lastError = mysql_error($this->databaseLink);
+			mysql_query('ROLLBACK;',$this->databaseLink);
 			return false;
 		}
 	}

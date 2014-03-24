@@ -4,6 +4,7 @@
 		private $userID;
 		private $viewID;
 		private $views;
+		private $old;
 		private $db;
 		function __construct(){
 			$this->views=array();
@@ -41,11 +42,39 @@
 			return $result;
 #			return $query;
 		}
+		function updateViews(/*$id,*/$array){
+#			$this->userID=$id;
+			$this->db->ExecuteSQL('BEGIN;');
+			$query='DELETE FROM users WHERE userID='.$this->userID.';';
+			$this->db->ExecuteSQL($query);
+			foreach($array as $value){
+				$this->viewID=$value;
+				if(!$this->insert()){
+					$this->db->ExecuteSQL('ROLLBACK;');
+					return false;
+				}
+			}
+			$this->db->ExecuteSQL('COMMIT;');
+			return true;	
+		}
+		function updateView(){
+			$this->db->ExecuteSQL('BEGIN;');
+			$query='UPDATE users SET viewID='.$this->viewID.' WHERE userID='.$this->userID.' AND viewID='.$this->old.';';
+			if(!$this->db->ExecuteSQL($query)){
+					$this->db->ExecuteSQL('ROLLBACK;');
+					return false;
+			}
+			$this->db->ExecuteSQL('COMMIT;');
+			return true;
+		}	
 		function setUserID($uid){
 			$this->userID=$uid;
 		}
 		function setViewID($vid) {
 			$this->viewID=$vid;
+		}
+		function setOld($vid) {
+			$this->old=$vid;
 		}
 		function getDB() {
 			return $this->db;
