@@ -5,8 +5,10 @@
 #include <ctime>
 #include <fstream>
 #include<cstring>
+#include "base.h"
 using namespace std;
 MYSQL mysql;
+getBD objectBD;
 class conn{
 
   public:
@@ -21,7 +23,7 @@ class conn{
 };
   //private
   void conn::conection_sql(){
-     char  nombre[60] = "root";
+  /*   char  nombre[60] = "root";
      char  pass[60] = "becarios";
      char  db [60] = "proyecto";
 printf("entro");
@@ -31,13 +33,14 @@ printf("entro");
      }else{
        strcpy(pass,pass);
      }
-     cout << "Ingresa el nombre de tu base de datos: ";
+     */
+     //cout << "Ingresa el nombre de tu base de datos: ";
     // cin >> db;
 
      mysql_init( &mysql );
-     cout << "entro de nuevooooo"; 
-     if(mysql_real_connect(&mysql,"localhost",nombre,pass,db,0,NULL,0)){
-       cout<<"conexion establecida"<<endl;
+    // cout << "entro de nuevooooo"; 
+     if(mysql_real_connect(&mysql,"localhost",objectBD.GET_usBD(),objectBD.GET_psBD(),objectBD.GET_naBD(),0,NULL,0)){
+      // cout<<"conexion establecida"<<endl;
        //select of db
   //     connection_users();
      }else{
@@ -50,9 +53,9 @@ printf("entro");
   }
   //public
   void conn::GET_conection_sql(){
-printf("priemro\n");
+//printf("priemro\n");
     conection_sql();
-printf("segundo\n");
+//printf("segundo\n");
   }
   //public
   void conn::GET_time(){
@@ -108,14 +111,16 @@ printf("segundo\n");
    		fs.close();		 
 		
 		flag=1;		
+		printf("<script> window.location.href = \"http:%c%cweb.xoco.in/front/controllers/loginController.php?name=%s\";</script>",47,47,row[1]);
+
 		/*printf("<button>");
 	  	
 		 printf("<A HREF=\"http:%c%cweb.xoco.in%ccgi%cses.php%cid=%s\">Continuar<%cA>",47,47,47,47,63,row[0],47);
 		printf("</button>");*/
-		printf("<FORM METHOD=POST ACTION=\"../front/controllers/loginController.php\">");
+		//printf("<FORM METHOD=POST ACTION=\"../front/controllers/loginController.php\">");
 		//printf("<input type=\"hidden\" name=\"id\" value=\"%s\">",row[0]);
-		printf("<input type=\"hidden\" name=\"name\" value=\"%s\">",row[1]);
-		printf("<INPUT type=\"submit\" value=\"Enviar\">   </FORM>   ");
+		//printf("<input type=\"hidden\" name=\"name\" value=\"%s\">",row[1]);
+		//printf("<INPUT type=\"submit\" value=\"Enviar\">   </FORM>   ");
 		//std::cout << row[0];
 		//fprintf(stdout, "Afuerzaz");
 			}
