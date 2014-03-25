@@ -46,7 +46,7 @@ printf("Content-Type: text/html\n\n");
 
   i=longitud;
   info[i]='\0';
-  printf("%d\n%s",i,info);
+  //printf("%d\n%s",i,info);
 
 /// 
  token = strtok(info , "&");  
@@ -59,7 +59,7 @@ printf("Content-Type: text/html\n\n");
 		break;
         }
 if(strlen(us)>5 && strlen(ps)>5){
-printf("%s\n",ps);
+//printf("%s\n",ps);
 token = strtok(us , "="); 
 sus=token;
  while (token != NULL){
@@ -68,7 +68,7 @@ sus=token;
                 us=token;
                 break;
         }
-printf("%s\n",us);
+//printf("%s\n",us);
 
 
 token = strtok(ps , "=");  
@@ -80,13 +80,19 @@ sps=token;
                 ps=token;
                 break;
         }
-printf("%s\n",ps);
+//printf("%s\n",ps);
+
+if((strchr( us, '%' ))!=NULL || (strchr( us, '\'' ))!=NULL || (strchr( ps, '\'' ))!=NULL ){
+flag=1;
+}
+
+
 }
 else{
 flag=1;
 }
   object.GET_conection_sql();
-printf("ssssnes\n");
+//printf("ssssnes\n");
   object.GET_time();
 
 if((flag==0 && strcmp(sus,"user")==0)&&(strcmp(sps,"pass")==0)&& us!=NULL && ps!=NULL){
