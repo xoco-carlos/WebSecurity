@@ -1,0 +1,211 @@
+<?php
+// Universidad Nacional Autonoma de Mexico
+// SSI / UNAM-CERT
+// PBSC G8
+// Equipo Beta
+
+/**
+* @file
+* Use this module to learn about Drupal's menu system.
+*/
+/**
+* Implementation of hook_menu().
+*/
+function pbsccomentarios_menu() {
+	$items['pbsccomentarios'] = array(
+		'title' => 'PBSC Comentarios con autor front end',
+		//'page callback' => 'pbsccomentarios_hello',
+		'page callback' => 'pbsccomentarios_inserta',
+			'page arguments' => array('Sean', 'Tovar Balderas'),
+		'access callback' => TRUE,
+		'type' => MENU_CALLBACK,
+	);
+ 	//$items['pbsccomentarios/insertasinsql'] = array(
+ 	$items['pbsccomentariosinsertasinsql'] = array(
+		'title' => 'PBSC Comentarios',
+                'page callback' => 'pbsccomentarios_inserta_sinsql',
+                'access callback' => TRUE,
+        );
+	return $items;
+}
+/** 
+ * Page callback. 
+ */ 
+/*function pbsccomentarios_hello() { 
+ 	return t('Holas Modulo Web Services!'); 
+}*/
+
+//function pbsccomentarios_inserta($first_name = '', $last_name = '', $numNodo='',$comentarioNodo='') {
+function pbsccomentarios_inserta($numNodo='',$comentarioNodo='') {
+
+	$inserta = db_insert('comentarios')
+		->fields(array(
+		//'id'=>4,
+		//'comentario'=>'cuatro 4 comentario'))->execute();
+		'id'=>$numNodo,
+		'comentario'=>$comentarioNodo))->execute(); 
+	//$result = db_query("SELECT comentario FROM comentarios WHERE id = 6",
+	$result = db_query("SELECT comentario FROM comentarios WHERE id = $numNodo",
+		array(
+			//':type' => $type, ':status' => 1,
+			// sean@server:~$ curl -vK --use-ascii "http://192.168.199.129/drupal/?q=pbsccomentarios/10/diez desde curl"
+			// sean@server:~$ curl -vK --use-ascii "http://192.168.199.129/drupal/?q=pbsccomentarios/10/diez%20desde%20curl"
+			':status' => 1,
+		));
+	$res = array();
+	/*$i=0;
+	foreach ($result as $row) {
+	$i++;
+	echo $row->comentario."<br/>";
+	}*/
+	return $row->comentario."<br/>";
+
+	//	return t('Holas @first_name @last_name insertando (nodo comentario) -> (@numNodo @cometarioNodo)',
+	//		array('@first_name' => $first_name, '@last_name' => $last_name, 
+	//		'@numNodo' =>$numNodo, '@cometarioNodo' => $cometarioNodo));
+}
+// http://www.vanhees.cc/?q=node/5504
+// https://api.drupal.org/api/drupal/modules%21user%21user.module/function/user_is_anonymous/7
+// https://drupal.org/node/1030676
+// https://api.drupal.org/api/drupal/modules%21comment%21comment.module/function/comment_node_insert/7
+/*function createTopicResponse($nid, $subject, $text, $postDate){
+	$subject = (strlen($subject) > 60) ? substr($subject,0,60).'...' : $subject;
+	$comment = (object) array(
+		'nid' => $nid,
+		'cid' => 0,
+		'pid' => 0,
+		'uid' => 1,
+		'mail' => '',
+		'created' => convertDate($postDate),
+		'changed' => convertDate($postDate),
+		'is_anonymous' => 0,
+		'homepage' => '',
+		'status' => COMMENT_PUBLISHED,
+		'subject' => utf8_encode($subject),
+		'language' => LANGUAGE_NONE,
+		'comment_body' => array(
+			LANGUAGE_NONE => array(
+				0 => array (
+					'value' => utf8_encode(parseubb($text)),
+					'format' => 'full_html'
+				)
+			)
+		),
+	);
+	comment_submit($comment);
+	comment_save($comment);
+	return $comment->cid;
+}*/
+function pbsccomentarios_inserta_sinsql($numNodo='',$comentarioNodo='') {
+	//$subject = (strlen($subject) > 60) ? substr($subject,0,60).'...' : $subject;
+	//$comment = new stdClass();
+	$comment = (object) array(
+		'nid' => $numNodo,
+		'cid' => 0,
+		'pid' => 0,
+		'uid' => 1,
+		'mail' => '',
+		//'created' => convertDate($postDate),
+		//'changed' => convertDate($postDate),
+		'created' => time(),//para conocer la fecha cuando se creo
+		'changed' => time(),
+		//'is_anonymous' => 0,
+		'is_anonymous' => 1,
+		'homepage' => '',
+		'status' => COMMENT_PUBLISHED,
+		//'subject' => utf8_encode($subject),
+		'subject' => utf8_encode(''),
+		'language' => LANGUAGE_NONE,
+		'comment_body' => array(
+			LANGUAGE_NONE => array(
+				0 => array (
+					'value' => utf8_encode($comentarioNodo),
+					//'value' => $com,
+					//'format' => 'full_html'
+					'format' => 'filtered_html'
+				)
+			)
+		),
+	);
+	comment_submit($comment);
+	comment_save($comment);
+
+	// monitoreo
+	// envio de correo cuando realizan un comentario
+	$module = 'module_name';
+	$key = 'key';
+	$language = language_default();
+	$params = array();
+	//$from = NULL;
+	$from = 'drupal@bec.seguridad.unam.mx';
+	$send = FALSE;
+	$email = 'stovar@bec.seguridad.unam.mx';
+	$message = drupal_mail($module, $key, $email, $language, $params, $from, $send);
+	$subject = 'Se ha insertado un nuevo comentario';
+	$message['subject'] = $subject;
+	$message['body'] = array();
+	$line1 = 'Holas ';
+	$line2 = 'este mensaje se envio por que escribieron un comentario anonimo ';
+	$line3 = $numNodo;
+	$line4 = $comentarioNodo;
+	$message['body'][] = $line1;
+	$message['body'][] = $line2;
+	$message['body'][] = $line3;
+	$message['body'][] = $line4;
+	// Retrieve the responsible implementation for this message.
+	$system = drupal_mail_system($module, $key);
+	// Format the message body.
+	$message = $system->format($message);
+	// Send e-mail.
+	$message['result'] = $system->mail($message);
+
+	//http://172.16.16.135/drupal/?q=pbsccomentariosinsertasinsql/2/anonimo%20okas
+	//http://172.16.16.135/drupal/?q=node/2#comments
+	// intento de xss
+	// http://172.16.16.135/drupal/?q=pbsccomentariosinsertasinsql/5/%3Cscript%3Ealert(%22stovar%22);%3C/script%3E
+	// http://172.16.16.135/drupal/?q=pbsccomentariosinsertasinsql/5/%3Cscript%3Ealert(%27stovar%27)%3C/script%3E
+
+	return $comment->nid;
+}
+/*
+select type,title from node;
+select * from field_data_body;
+select * from file_managed;
+ok
+SELECT nid, title, body_value FROM node JOIN field_data_body ON node.nid = field_data_body.entity_id WHERE node.type = 'article' AND status = 1 ORDER BY created DESC;
+ok
+SELECT nid, title, body_value
+FROM node
+JOIN field_data_body
+ON node.nid = field_data_body.entity_id 
+JOIN field_data_field_image
+ON node.nid = field_data_field_image.entity_id
+WHERE node.type = 'article' AND status = 1
+ORDER BY created DESC;
+ok (todos los nodos deben de tener imagenes)
+SELECT nid, title, body_value, uri
+FROM node
+JOIN field_data_body
+ON node.nid = field_data_body.entity_id 
+JOIN field_data_field_image
+ON node.nid = field_data_field_image.entity_id
+JOIN file_managed
+ON node.uid = file_managed.uid
+WHERE node.type = 'article' AND node.status = 1
+ORDER BY created DESC GROUP BY nid;
+
+drupal=# create table comentarios(id int,comentario varchar(255));
+drupal=# insert into comentarios values(1,'Hola');
+drupal=# alter table comentarios owner to drupal;
+drupal=# select * from comentarios;
+drupal=# insert into comentarios values(2,'Hola sean desde tabla comentarios');
+para ver las consultas de los nodos
+http://192.168.199.129/drupal/?q=node/4
+en el modo de deploy o desarrollo
+DrupalDefaultEntityController::loa
+user_node_load
+DrupalDefaultEntityController::load
+PagerDefault::execute
+dar clic en la A del P A E que son las ops en ms # where ops query target
+http://virtualdevl.com/Pro%20Drupal%207%20Development.pdf
+*/
