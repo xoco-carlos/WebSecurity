@@ -5,14 +5,14 @@ WebSecurity
 
 Integrantes:
 
-Betancourt Sandoval Denise 
+Betancourt Sandoval Denise 			->		Consultas y administracion de base de datos
 
-Carmona Domínguez Ricardo Andrés
+Carmona Domínguez Ricardo Andrés		->		Drupal, Webservice y vistas
 
-Hernández Padrón José Carmen
+Hernández Padrón José Carmen			->		CGI Auth
 
-Tovar Balderas Sergio Anduin
+Tovar Balderas Sergio Anduin			->		Drupal, Webservice
 
-Zamora Parra Xocoyotzin Carlos
+Zamora Parra Xocoyotzin Carlos		->		Front-End, configuraciones apache
 
 
