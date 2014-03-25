@@ -74,6 +74,7 @@
 					</div>
 				</div>
 				<input type="hidden" name="old" value="'.$node.'">
+				<input type="hidden" name="ord" value="'.$i.'">
 				<input type="submit" value="Modificar"/>
 				</form>';
 			if($i==8){

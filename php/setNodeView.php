@@ -8,6 +8,7 @@
 		die();
 	}
 	$old=$_GET['old'];
+	$position=$_GET['ord'];
 ?>
 	<head>
 		<meta charset="utf-8" />
