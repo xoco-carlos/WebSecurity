@@ -40,9 +40,7 @@
 			</TD>
 			</FORM>
 		</TR>
-		
 		";
-		
 	   }
 	   $user->getDB()->CloseConnection();
 	}
