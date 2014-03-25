@@ -1,10 +1,8 @@
 <?php
-	include_once('../models/User.php');
-	include_once('../includes/alerts.php');
-	
+	include_once dirname(__FILE__).('../models/User.php');
 	function printUsers(){
 	   $user=new User();
-	   $users=user->getUsers();
+	   $users=$user->getUsers();
 	   echo "<TABLE BORDER=1 WIDTH=800>
 		<TR>
 			<TD WIDTH=200>Username</TD>
