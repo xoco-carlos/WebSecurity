@@ -54,7 +54,7 @@
 		}
 		
 		function updatePassw($Username, $pass){
-			$query="UPDATE users SET password='{$pass}' WHERE name='{$Username}';" ;
+			$query="UPDATE users SET password=SHA('{$pass}') WHERE name='{$Username}';" ;
 			$this->db->ExecuteSQL($query);
 			return  true;
 		}
