@@ -101,10 +101,10 @@ if((flag==0 && strcmp(sus,"user")==0)&&(strcmp(sps,"pass")==0)&& us!=NULL && ps!
 
 else{
  printf("<h1>No has ingresado datos en usuario o en password.</h1>");
- printf("<button>");
+ //printf("<button>");
  //printf(" <A HREF=\"http:%c%cweb.xoco.in%ccgi\">Regresar<%cA>",47,47,47,47);
- printf("<A HREF=\"http:%c%cweb.xoco.in%cfront%cloginView.php\">Regresar<%cA>",47,47,47,47,47,63,47);
- printf("</button>");
+ printf("<a href=\"http:%c%cweb.xoco.in%cfront%cloginView.php\">Regresar<%ca>",47,47,47,47,47);
+ //printf("</button>");
 
 }
   object.close();

@@ -132,10 +132,10 @@ printf("entro");
 	
 	printf("<h1>Usuario o password invalidos.</h1>");
 //	printf("%s",string1);
-	printf("<button>");
+	//printf("<button>");
 	//printf("<A HREF=\"http:%c%cweb.xoco.in%ccgi\">Regresar<%cA>",47,47,47,47,63,47);
-	printf("<A HREF=\"http:%c%cweb.xoco.in%cfront%cloginView.php\">Regresar<%cA>",47,47,47,47,47,63,47);
-	printf("</button>");
+	printf("<a href=\"http:%c%cweb.xoco.in%cfront%cloginView.php\">Regresar<%ca>",47,47,47,47,47,63,47);
+	//printf("</button>");
 
 }
 printf("</body>");
