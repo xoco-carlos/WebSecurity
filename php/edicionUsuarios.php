@@ -14,6 +14,14 @@
         </br></br></br>
 		<?php 
 			include_once("controllers/showUserController.php");
+			include_once('includes/checks.php');
+			include_once('includes/alerts.php');
+			include_once('controllers/setNodeController.php');
+			$numero=isLogged();
+			if($numero==0){
+				message('error','You must login to edit views','/front/loginView.php');
+				die();
+        }
 			printUsers();
 		?>
 	</body>

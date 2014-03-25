@@ -8,5 +8,10 @@
 		die();
 	}
 	$old=$_GET['old'];
+?>
+	<head>
+		<meta charset="utf-8" />
+	</head>
+<?php
 	content($old);	
 ?>

@@ -8,7 +8,6 @@
 						<li><a href=addUserView.php>Add User</a></li>
 						<li><a href=edicionUsuarios.php>Edit User</a></li>
 						<li><a href="contenido.php">Lista de Contenido</a></li>
-						<li><a href=view/setView.php>Edit View</a></li>
 						<li><a href=logout.php>Log out</a></li>
 					</ul>
 				</div>

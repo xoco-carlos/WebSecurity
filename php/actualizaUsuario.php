@@ -16,6 +16,14 @@
 <?php
 	include_once dirname(__FILE__).('/../models/User.php');
 	include_once("controllers/editUserController.php");
+	include_once('includes/checks.php');
+	include_once('includes/alerts.php');
+	include_once('controllers/setNodeController.php');
+	$numero=isLogged();
+	if($numero==0){
+		message('error','You must login to edit views','/front/loginView.php');
+		die();
+	}
 	$username	= filter_input(INPUT_POST, 'User', FILTER_SANITIZE_STRING);
 	$accion = filter_input(INPUT_POST, 'accion', FILTER_SANITIZE_STRING);
 	$activo = filter_input(INPUT_POST, 'activo', FILTER_SANITIZE_STRING);

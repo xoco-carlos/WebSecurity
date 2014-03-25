@@ -59,7 +59,7 @@
 		}
 		function updateView(){
 			$this->db->ExecuteSQL('BEGIN;');
-			$query='UPDATE users SET viewID='.$this->viewID.' WHERE userID='.$this->userID.' AND viewID='.$this->old.';';
+			$query='UPDATE views SET viewID='.$this->viewID.' WHERE userID='.$this->userID.' AND viewID='.$this->old.';';
 			if(!$this->db->ExecuteSQL($query)){
 					$this->db->ExecuteSQL('ROLLBACK;');
 					return false;

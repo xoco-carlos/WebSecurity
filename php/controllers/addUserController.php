@@ -2,6 +2,11 @@
 	include_once('../models/User.php');
 	include_once('../models/View.php');
 	include_once('../includes/alerts.php');
+	include_once('../includes/checks.php');
+	$numero=isLogged();
+	if($numero < 0){
+		message("error","Go home",'/front/loginView.php');
+	}
 	$username	= filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
 	$password	= filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 	$password2	= filter_input(INPUT_POST, 'password2',FILTER_SANITIZE_STRING);
