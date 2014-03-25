@@ -9,4 +9,5 @@ core = 7.x
 version = 0.1
 package = PBSC
 files[] = pbsccomentarios.module
-;configure=admin/config/content/pbsc/settings
+dependencies[] = smtp
+;configure=admin/config/content/pbsccomentarios/settings

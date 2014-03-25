@@ -167,6 +167,16 @@ function pbsccomentarios_inserta_sinsql($numNodo='',$comentarioNodo='') {
 
 	return $comment->nid;
 }
+/**
+ * Muestra la ayuda del modulo
+ */
+function pbsccomentarios_help($path, $arg) {
+        switch ($path) {
+                case 'admin/help#pbsccomentarios':
+                return '<p>' . t("Ayuda del Modulo Web Services PBSC G8 - Comentarios") . '</p>';
+        }
+}
+
 /*
 select type,title from node;
 select * from field_data_body;
