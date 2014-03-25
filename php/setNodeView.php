@@ -14,5 +14,5 @@
 		<meta charset="utf-8" />
 	</head>
 <?php
-	content($old);	
+	content($old,$position);	
 ?>

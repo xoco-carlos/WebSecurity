@@ -1,5 +1,5 @@
 <?php
-	function content($old,$position){
+	function content($old,$ord){
 		include_once dirname(__FILE__).('/../models/Drupal.php');
 		#include_once('../models/Drupal.php');
 		$articulo = new Drupal();
@@ -13,7 +13,7 @@
    	</tr>
 		<input type="hidden" name="new" value="<?php echo $articulos[$i]['Nid'];?>">
 		<input type="hidden" name="old" value="<?php echo $old;?>">
-		<input type="hidden" name="ord" value="<?php echo $position;?>">
+		<input type="hidden" name="ord" value="<?php echo $ord;?>">
 		<input type="submit" value="Enviar">
 	</form>
 <?php
