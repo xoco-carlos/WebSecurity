@@ -25,9 +25,12 @@
 		$user->setTipo($type);
 		$lastID=$user->insert();
 		$view->setUserID($lastID);
+		$order=1;
 		foreach($view->getAdminViews() as $value){
+			$view->setOrder($order);
 			$view->setViewID($value);
 			$view->insert();
+			$order++;
 		}
 		$view->getDB()->CloseConnection();
 		$user->getDB()->CloseConnection();

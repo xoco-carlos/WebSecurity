@@ -8,8 +8,8 @@
 <html>
 <head> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
-<script src="sha1.js">/* SHA-256 JavaScript implementation */</script>
-<script src="utf8.js">/* SHA-256 JavaScript implementation */</script>
+<script src="js/sha1.js">/* SHA-256 JavaScript implementation */</script>
+<script src="js/utf8.js">/* SHA-256 JavaScript implementation */</script>
 </head> 
 <body style="background:#80BFFF">
 

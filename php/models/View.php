@@ -3,6 +3,7 @@
 	class View{
 		private $userID;
 		private $viewID;
+		private $order;
 		private $views;
 		private $old;
 		private $db;
@@ -13,7 +14,7 @@
 		/*Funcion para verificar si el usuario existe en la base de datos*/
 		function getAdminViews(){
 			$result=array();
-			$query='SELECT viewID FROM views WHERE userID="1";';
+			$query='SELECT viewID FROM views WHERE userID="1" ORDER BY orden;';
 			foreach($this->db->ExecuteSQL($query) as $value){
 				$result[]=$value['viewID'];
 			}
@@ -23,7 +24,7 @@
 		/*Funcion para obterner la vistas de un usuario*/
 		function getUserViews($user){
 			$result=array();
-			$query='SELECT viewID FROM views WHERE userID="'.$user.'";';
+			$query='SELECT viewID FROM views WHERE userID="'.$user.'" ORDER BY orden;';
 			foreach($this->db->ExecuteSQL($query) as $value){
 				$result[]=$value['viewID'];
 			}
@@ -32,10 +33,11 @@
 		}
 		/*Funcion que inserta un usuario a la BD*/
 		function insert(){
-			$query='INSERT INTO views (userID,viewID) 
+			$query='INSERT INTO views (userID,viewID,order) 
 						VALUES(
 						"'.$this->userID.'",
-						"'.$this->viewID.'"
+						"'.$this->viewID.'",
+						"'.$this->order.'"
 					);';
 			$result=$this->db->ExecuteSQL($query);
 			#$this->db->CloseConnection();
@@ -59,7 +61,7 @@
 		}
 		function updateView(){
 			$this->db->ExecuteSQL('BEGIN;');
-			$query='UPDATE views SET viewID='.$this->viewID.' WHERE userID='.$this->userID.' AND viewID='.$this->old.';';
+			$query='UPDATE views SET viewID='.$this->viewID.' WHERE userID='.$this->userID.' AND viewID='.$this->old.' AND order='.$this->order.';';
 			if(!$this->db->ExecuteSQL($query)){
 					$this->db->ExecuteSQL('ROLLBACK;');
 					return false;
@@ -72,6 +74,9 @@
 		}
 		function setViewID($vid) {
 			$this->viewID=$vid;
+		}
+		function setOrder($vid) {
+			$this->order=$vid;
 		}
 		function setOld($vid) {
 			$this->old=$vid;

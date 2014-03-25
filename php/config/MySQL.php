@@ -16,7 +16,7 @@ class MySQL {
 	private $databaseLink;		// Database Connection Link
 	
 	function __construct(){
-		$this->database = 'proyecto';
+		$this->database = 'proyect';
 		$this->username = 'root';
 		$this->password = 'becarios';
 		$this->hostname = '127.0.0.1'.':'.'3306';
