@@ -21,13 +21,14 @@
 		$i=0;
 		foreach($array as $node){
 			if($i==0){
-				echo '<div class="column">';
+				echo '<div class="column ui-sortable">';
 			}
 			if($i==3||$i==6){
-				echo '</div><div class="column">';
+				echo '</div><div class="column ui-sortable">';
 			}
-			echo '<div class="portlet">
-						<div class="portlet-header">';
+			echo '<div class="portlet ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
+						<div class="portlet-header ui-widget-header ui-corner-all">
+						<span class="ui-icon ui-icon-minusthick portlet-toggle"></span>';
 							echo $drupal->getTitulo($node);
 			echo '	</div>
 					<div class="portlet-content">
@@ -51,13 +52,15 @@
 		$i=0;
 		foreach($array as $node){
 			if($i==0){
-				echo '<div class="column">';
+				echo '<div class="column ui-sortable">';
 			}
 			if($i==3||$i==6){
-				echo '</div><div class="column">';
+				echo '</div><div class="column ui-sortable">';
 			}
-			echo '<form method="get" action="setNodeView.php"><div class="portlet">
-						<div class="portlet-header">';
+			echo '<form method="get" action="setNodeView.php">
+				<div class="portlet ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
+						<div class="portlet-header ui-widget-header ui-corner-all">
+						<span class="ui-icon ui-icon-minusthick portlet-toggle"></span>';
 							echo $drupal->getTitulo($node);
 			echo '	</div>
 					<div class="portlet-content">
