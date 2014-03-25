@@ -1,9 +1,6 @@
 <?php
-<<<<<<< HEAD
 	include_once dirname(__FILE__).('/../models/User.php');
-=======
 	include_once dirname(__FILE__).('../models/User.php');
->>>>>>> 8cbc34d8e41b47d98f49333be26a0026c07fcc58
 	function printUsers(){
 	   $user=new User();
 	   $users=$user->getUsers();
