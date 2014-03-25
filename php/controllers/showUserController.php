@@ -20,6 +20,7 @@
 			<TD WIDTH=200>
 				<INPUT TYPE=\"hidden\" NAME=\"User\" VALUE={$name}>
 				<INPUT TYPE=\"hidden\" NAME=\"accion\" VALUE=1>
+				<INPUT TYPE=\"hidden\" NAME=\"activo\" VALUE=0>
 				<INPUT TYPE=\"submit\" NAME=\"modificaDatos\" VALUE=\"Modifica Datos\">
 			</TD>
 			</FORM>
@@ -27,6 +28,7 @@
 			<TD WIDTH=200>
 				<INPUT TYPE=\"hidden\" NAME=\"User\" VALUE={$name}>
 				<INPUT TYPE=\"hidden\" NAME=\"accion\" VALUE=2>
+				<INPUT TYPE=\"hidden\" NAME=\"activo\" VALUE=0>
 				<INPUT TYPE=\"submit\" NAME=\"modificaPass\" VALUE=\"Modifica Contraseña\">
 			</TD>
 			</FORM>
@@ -34,6 +36,7 @@
 			<TD WIDTH=200>
 				<INPUT TYPE=\"hidden\" NAME=\"User\" VALUE={$name}>
 				<INPUT TYPE=\"hidden\" NAME=\"accion\" VALUE=3>
+				<INPUT TYPE=\"hidden\" NAME=\"activo\" VALUE=0>
 				<INPUT TYPE=\"submit\" NAME=\"modificaPass\" VALUE=\"Elimina\">
 			</TD>
 			</FORM>
