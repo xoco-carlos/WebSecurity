@@ -25,3 +25,23 @@
 	<img src=' <?php echo $articulo->getImagen($nodo); ?>'/>
     </body>
 </html>
+<?php
+/*$handler = curl_init("http://drupal.xoco.in/drupal7/?q=pbsccomentariosinsertasinsql/5/Comentarios%20desde%20php%205");
+$response = curl_exec ($handler);
+curl_close($handler);
+echo $response;*/
+
+// Crear un nuevo recurso cURL
+$ch = curl_init();
+
+// Establecer URL y otras opciones apropiadas
+curl_setopt($ch, CURLOPT_URL, "http://drupal.xoco.in/drupal7/?q=pbsccomentariosinsertasinsql/5/Comentarios%20desde%20php%206");
+curl_setopt($ch, CURLOPT_HEADER, 0);
+
+// Capturar la URL y pasarla al navegador
+curl_exec($ch);
+
+// Cerrar el recurso cURL y liberar recursos del sistema
+curl_close($ch);
+?>
+?>

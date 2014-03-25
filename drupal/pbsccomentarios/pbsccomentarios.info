@@ -1,0 +1,13 @@
+; Universidad Nacional Autonoma de Mexico
+; SSI / UNAM-CERT
+; PBSC G8
+; Equipo Beta
+
+name = Web Service PBSC G8 - Comentarios
+description = Modulo Web Service para insertar comentarios a los nodos del Proyecto en <a href="https://github.com/tonejo/PBSC8-mod2" target="_BLANK">GitHub</a>
+core = 7.x
+version = 0.1
+package = PBSC
+files[] = pbsccomentarios.module
+dependencies[] = smtp
+;configure=admin/config/content/pbsccomentarios/settings

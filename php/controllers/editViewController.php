@@ -11,9 +11,9 @@
 	$result=$view->updateView();
 	$view->getDB()->CloseConnection();
 	if($result){
-		message('success','View has been updated successfully');
+		message('success','View has been updated successfully','/front/');
 	}
 	else{
-		message('error','View already selected');
+		message('error','View already selected','/front/');
 	}
 ?>

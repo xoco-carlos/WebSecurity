@@ -9,7 +9,7 @@
 	$type			= filter_input(INPUT_POST, 'type', 		FILTER_SANITIZE_STRING);
 	$type=='on'?$type=1:$type=0;
 	if($password!=$password2){
-		message("error","Passwords doesn't match");
+		message("error","Passwords doesn't match",$_SERVER["HTTP_REFERER"]);
 	}
 	$user=new User();
    $view=new View();
@@ -30,7 +30,8 @@
 		#header('Location:'.$_SERVER["HTTP_REFERER"].'?mensaje=User '.$username.' created successfully');
    }
 	else{
-		message("error","User already exists");
+		message("error","User already exists",$_SERVER["HTTP_REFERER"]);
+		die();
 		#header('Location:'.$_SERVER["HTTP_REFERER"].'?mensaje=User '.$username.' already exists');
 	}
 ?>

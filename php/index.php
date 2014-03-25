@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <?php 
 	include_once("controllers/indexController.php");
+	include_once("includes/checks.php");
+	$numero=isLogged();
 ?>
 <html lang="en">
     <head>
@@ -17,7 +19,11 @@
 		
 		<div id="vertical-margin">
 	<?php include_once("includes/header.php");
-				printNodes(printHeader());
+		if($numero==0){
+			printNodes(views());
+		}else{
+			printNodesLogged(views());
+		}
 	?>
 		</div>
 	</body>

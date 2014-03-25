@@ -1,5 +1,5 @@
 <?php
-	function message($tipo,$mensaje){
-		header('Location:'.$tipo.'.php?mensaje='.$mensaje.'&referer='.$_SERVER["HTTP_REFERER"]);
+	function message($tipo,$mensaje,$page){
+		header('Location: /front/controllers/'.$tipo.'.php?mensaje='.$mensaje.'&referer='.$page);
 	}
 ?>
