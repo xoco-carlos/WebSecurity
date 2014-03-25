@@ -31,11 +31,11 @@
 		}
 		$view->getDB()->CloseConnection();
 		$user->getDB()->CloseConnection();
-		message("success","User created successfully");
+		message("success","User created successfully","/front/");
 		#header('Location:'.$_SERVER["HTTP_REFERER"].'?mensaje=User '.$username.' created successfully');
    }
 	else{
-		message("error","User already exists",$_SERVER["HTTP_REFERER"]);
+		message("error","User already exists","/front/loginView.php");
 		die();
 		#header('Location:'.$_SERVER["HTTP_REFERER"].'?mensaje=User '.$username.' already exists');
 	}
