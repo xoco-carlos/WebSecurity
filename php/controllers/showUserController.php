@@ -18,21 +18,21 @@
 		echo "
 		<TR>
 			<TD WIDTH=200>{$name}</TD>
-			<FORM ACTION=\"ActualizaUsuario.php\" METHOD= \"POST\">
+			<FORM ACTION=\"actualizaUsuario.php\" METHOD= \"POST\">
 			<TD WIDTH=200>
 				<INPUT TYPE=\"hidden\" NAME=\"User\" VALUE={$name}>
 				<INPUT TYPE=\"hidden\" NAME=\"accion\" VALUE=1>
 				<INPUT TYPE=\"submit\" NAME=\"modificaDatos\" VALUE=\"Modifica Datos\">
 			</TD>
 			</FORM>
-			<FORM ACTION=\"ActualizaUsuario.php\" METHOD= \"POST\">
+			<FORM ACTION=\"actualizaUsuario.php\" METHOD= \"POST\">
 			<TD WIDTH=200>
 				<INPUT TYPE=\"hidden\" NAME=\"User\" VALUE={$name}>
 				<INPUT TYPE=\"hidden\" NAME=\"accion\" VALUE=2>
 				<INPUT TYPE=\"submit\" NAME=\"modificaPass\" VALUE=\"Modifica Contraseña\">
 			</TD>
 			</FORM>
-			<FORM ACTION=\"ActualizaUsuario.php\" METHOD= \"POST\">
+			<FORM ACTION=\"actualizaUsuario.php\" METHOD= \"POST\">
 			<TD WIDTH=200>
 				<INPUT TYPE=\"hidden\" NAME=\"User\" VALUE={$name}>
 				<INPUT TYPE=\"hidden\" NAME=\"accion\" VALUE=3>
