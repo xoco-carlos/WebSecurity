@@ -35,7 +35,7 @@
 			echo 			$drupal->getTitulo($node);
 			echo '" href="articulo.php?art='.$node.'">
 						<img src="';
-#			echo 			$drupal->getImagen($node);
+			echo 			$drupal->getImagen($node);
 			echo '" width="130px" height="140px"/>
 						</a>
 					</div>

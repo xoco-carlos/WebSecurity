@@ -1,6 +1,14 @@
 <?php
 	include_once dirname(__FILE__).('/../models/User.php');
 	include_once dirname(__FILE__).('../models/User.php');
+	include_once dirname(__FILE__).('/../includes/alerts.php');
+	include_once dirname(__FILE__).('/../includes/checks.php');
+	$numero=isLogged();
+	if($numero < 0){
+		message("error","Go home",'/front/loginView.php');
+		die();
+	}
+
 	function printUsers(){
 	   $user=new User();
 	   $users=$user->getUsers();

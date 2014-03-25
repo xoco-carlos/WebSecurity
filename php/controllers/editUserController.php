@@ -2,6 +2,13 @@
 <<<<<<< HEAD
 	include_once dirname(__FILE__).('/../models/User.php');
 	include_once dirname(__FILE__).('/../includes/alerts.php');
+   include_once dirname(__FILE__).('/../includes/checks.php');
+   $numero=isLogged();
+   if($numero < 0){
+	   message("error","Go home",'/front/loginView.php');
+		die();
+   }
+
 	$accion			= filter_input(INPUT_POST, 'accion', FILTER_SANITIZE_STRING); #Accion=1 Modifica Username. Accion=2 Modifica contraseña. Accion=3 Borra usuario.
 	$activo = filter_input(INPUT_POST, 'activo', FILTER_SANITIZE_STRING);
   if($activo==1){
