@@ -1,5 +1,5 @@
 <?php
-	include_once('../config/MySQL.php');
+	include_once dirname(__FILE__).('/../config/MySQL.php');
 	class User{
 		private $name;
 		private $password;

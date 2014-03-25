@@ -18,7 +18,7 @@
 	include_once("controllers/editUserController.php");
 	$username	= filter_input(INPUT_POST, 'User', FILTER_SANITIZE_STRING);
 	$accion = filter_input(INPUT_POST, 'accion', FILTER_SANITIZE_STRING);
-	$activo			= filter_input(INPUT_POST, 'activo', FILTER_SANITIZE_STRING); 
+	$activo = filter_input(INPUT_POST, 'activo', FILTER_SANITIZE_STRING);
 	$user=new User();
 	if($accion == 1){
 		
