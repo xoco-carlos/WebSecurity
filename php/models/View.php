@@ -26,7 +26,7 @@
 		function getUserViews($user){
 			$result=array();
 			$query='SELECT viewID FROM views WHERE userID="'.$user.'" ORDER BY orden;';
-			$result=$this->db->ExecuteSQL($query);
+#			$result=$this->db->ExecuteSQL($query);
 			foreach($this->db->ExecuteSQL($query) as $value){
 				$result[]=$value['viewID'];
 			}
