@@ -66,8 +66,9 @@ class conn{
    		fs.close();		 
 		
 		flag=1;		
-//		printf("<script> window.location.href = \"http:%c%cweb.xoco.in/front/controllers/loginController.php?name=%s\";</script>",47,47,row[1]);
-
+		printf("<script> window.location.href = \"http:%c%cweb.xoco.in/front/controllers/loginController.php?name=%s\";</script>",47,47,row[1]);
+	cout<<"If your browser doesn't forward click the link";
+	cout<<"<a href=\"http://web.xoco.in/front/controllers/loginController.php?name="<<row[1]<<"\"/>Click here!!!</a>";
 			}
 	
 

@@ -36,7 +36,7 @@ const char  *getBD::GET_naBD(){
 
 
 
-const char  *c="proyecto";
+const char  *c="proyect";
 return c;
 
 

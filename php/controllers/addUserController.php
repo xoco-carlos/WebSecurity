@@ -1,11 +1,12 @@
 <?php
-	include_once('../models/User.php');
+	require_once dirname(__FILE__).('/../models/User.php');
 	include_once dirname(__FILE__).('/../models/View.php');
-	include_once('../includes/alerts.php');
+	include_once dirname(__FILE__).('/../includes/alerts.php');
 	include_once dirname(__FILE__).('/../includes/checks.php');
 	$numero=isLogged();
 	if($numero < 0){
 		message("error","Go home",'/front/loginView.php');
+		die();
 	}
 	$username	= filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
 	$password	= filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
@@ -14,10 +15,12 @@
 	$type			= filter_input(INPUT_POST, 'type', 		FILTER_SANITIZE_STRING);
 	$type=='on'?$type=1:$type=0;
 	if($password!=$password2){
-		message("error","Passwords doesn't match",$_SERVER["HTTP_REFERER"]);
+		message("error","Passwords doesn't match",'/front/addUserView.php');
+		die();
 	}
 	if($username=='' || $password=='' || $email='' ){
-		message("error","Fill all fields",$_SERVER["HTTP_REFERER"]);
+		message("error","Fill all fields",'/front/addUserView.php');
+		die();
 	}
 	$user=new User();
    $view=new View();

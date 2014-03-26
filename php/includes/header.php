@@ -18,7 +18,6 @@
 			$option='
 				<div class="barra">
 					<ul id="tope">
-						<li><a href=view/setView.php>Edit View</a></li>
 						<li><a href="contenido.php">Lista de Contenido</a></li>
 						<li><a href=logout.php>Log out</a></li>
 					</ul>
@@ -41,7 +40,7 @@
 ?>
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr bgcolor="#eeeeee">
-	<td><h1>Front-End<?php echo $_SESSION['userID']; echo $_SESSION['priv']?></h1></td>
+	<td><h1>Front-End</h1></td>
 </tr>
 <tr>
 	<td><?php echo $option?></td>

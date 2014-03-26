@@ -12,7 +12,7 @@
 			<label class="description" for="element_2">Password </label>
 			<input name="password" class="element text medium" type="password" maxlength="255" value="" required/> </br>
 			<label class="description" for="element_3">Confirmar password </label>
-			<input name="password2" class="element text medium" type="password" maxlength="255" value=""required /> </br>
+			<input name="password2" class="element text medium" type="password" maxlength="255" value="" required/> </br>
 			<label class="description" for="element_4">E-mail </label>
 			<input name="email" class="element text medium" type="email" maxlength="255" value="" required/> </br>
 			<label class="description" for="element_6">Admin </label>
