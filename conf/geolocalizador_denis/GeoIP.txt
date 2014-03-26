@@ -1,0 +1,24 @@
+#Denise Betancourt Sandoval
+
+### Geolocalizador (GeoIP)
+>aptitude install libapache2-mod-geoip
+>vi /etc/apache2/mods-available/geoip.conf
+
+<IfModule mod_geoip.c>
+GeoIPEnable On
+GeoIPDBFile /usr/share/GeoIP/GeoIP.dat
+</IfModule>
+
+
+###NIEGA acceso a país
+#<DirectoryMatch “/var/www/”>
+#	SetEnvIf GEOIP_COUNTRY_CODE MX BlockCountry
+#	Deny from env=BlockCountry
+#</DirectoryMatch>
+
+###PERMITE acceso a país
+<Directory “/var/www/”>
+	SetEnvIf GEOIP_COUNTRY_CODE MX AllowCountry
+	Order Allow,Deny
+	Allow from env=AllowCountry
+</Directory>
