@@ -21,11 +21,11 @@
 <TD VALIGN=MIDDLE  WIDTH=100  BGCOLOR="Silver">
 <blockquote>
 <form name="formulario" method="post" action="/cgi/get.exe">
-     Usuario:<br> <input type="text" name="user"/>
+     Usuario:<br> <input type="text" name="user" require/>
       <br>
 <!--<input type="hidden" name="pass" value=""/>
 </form>-->
-     Contraseña: <br><input type="password" name="pass"/>
+     Contraseña: <br><input type="password" name="pass" require/>
       <br>
       <button type="button" onClick='formulario.pass.value = Sha1.hash(pass.value);document.formulario.submit();'>Enviar</button>
 

@@ -19,7 +19,7 @@ curl_close($handler);
 echo $response;
 */
 
-
+// http://urldecode.org/
 // http://php.net/manual/es/filter.filters.sanitize.php
 // por post
 // curl -vk --data 'numnodo=16&comentarionodo=Hola desde curl' http://drupal.xoco.in/drupal7/?q=pbsccomentariosinsertasinsql

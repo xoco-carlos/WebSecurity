@@ -2,10 +2,13 @@
 	include('../models/View.php');
 #$login      = filter_input(INPUT_POST, 'Usuario', FILTER_SANITIZE_STRING);
 	$view=new View();
-	$view->setUserID(5);
+	$view->setUserID(4);
+	$cont=1;
    foreach($view->getAdminViews() as $value){
       $view->setViewID($value);
+      $view->setOrder($cont);
       echo $view->insert();
+		$cont++;
    }
 	$view->getDB()->CloseConnection();
 #	$view->getAdminViews();

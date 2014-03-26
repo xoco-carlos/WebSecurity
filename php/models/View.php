@@ -15,6 +15,7 @@
 		function getAdminViews(){
 			$result=array();
 			$query='SELECT viewID FROM views WHERE userID="1" ORDER BY orden;';
+#			$result=$this->db->ExecuteSQL($query);
 			foreach($this->db->ExecuteSQL($query) as $value){
 				$result[]=$value['viewID'];
 			}
@@ -25,6 +26,7 @@
 		function getUserViews($user){
 			$result=array();
 			$query='SELECT viewID FROM views WHERE userID="'.$user.'" ORDER BY orden;';
+			$result=$this->db->ExecuteSQL($query);
 			foreach($this->db->ExecuteSQL($query) as $value){
 				$result[]=$value['viewID'];
 			}
@@ -33,7 +35,7 @@
 		}
 		/*Funcion que inserta un usuario a la BD*/
 		function insert(){
-			$query='INSERT INTO views (userID,viewID,order) 
+			$query='INSERT INTO views (userID,viewID,orden) 
 						VALUES(
 						"'.$this->userID.'",
 						"'.$this->viewID.'",

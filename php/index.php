@@ -17,6 +17,7 @@
 		<div id="vertical-margin">
 	<?php include_once("includes/header.php");
 		if($numero==0){
+#			print_r(views());
 			printNodes(views());
 		}else{
 			printNodesLogged(views());
