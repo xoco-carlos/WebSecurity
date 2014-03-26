@@ -1,3 +1,4 @@
+<!-- stovar -->
 <form action="curl3.php" method="post" id="form1">
    <label class="nodo" for="element_1">Numero de nodo </label>
    <input type="text" name="nodo" width="48" height="48">
@@ -15,11 +16,11 @@ $comentarionodo = filter_input(INPUT_POST, 'comentario', FILTER_SANITIZE_FULL_SP
 $numnodo = urlencode($numnodo);
 echo "urlencode " . $numnodo;
 echo "<br>";
-$comentarionodo = htmlspecialchars($comentarionodo);
+	$comentarionodo = htmlspecialchars($comentarionodo, ENT_QUOTES);
 echo "htmlspecialchars" . $comentarionodo;
 $comentarionodo = urlencode($comentarionodo);
 //$comentario = urldecode("http://urldecode.org/?decode=http%3A%2F%2Furldecode.org%2F");
-echo "urlencode " . $comentarionodo;
+echo "<br>urlencode " . $comentarionodo;
 
 //Lo primerito, creamos una variable iniciando curl, pasándole la url
 $ch = curl_init('http://drupal.xoco.in/drupal7/?q=pbsccomentariosinsertasinsql');

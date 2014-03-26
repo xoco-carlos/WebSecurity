@@ -1,3 +1,4 @@
+ <!-- stovar -->
 <form action="curl.php" method="post">
 	<label class="comentario" for="element_1">Comentario </label>
 	<input type="text" name="comentario" width="48" height="48">

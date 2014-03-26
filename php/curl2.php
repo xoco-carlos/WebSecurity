@@ -1,3 +1,4 @@
+ <!-- stovar -->
 <?php
 $comentario = $_POST['comentario'];
 $comentario	= filter_input(INPUT_POST, 'comentario', FILTER_SANITIZE_STRING);
