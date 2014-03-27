@@ -14,7 +14,7 @@
 			<label >Confirmar password </label>
 			<input name="password2" type="password" maxlength="255" required/> </br>
 			<label >E-mail </label>
-			<input name="mail" type="email" maxlength="255" required/> </br>
+			<input name="email" type="email" maxlength="255" required/> </br>
 			<label >Admin </label>
 			<input name="type" type="checkbox"/>
 			<input type="submit" name="submit" value="Submit" />

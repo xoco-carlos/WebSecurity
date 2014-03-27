@@ -8,17 +8,17 @@
 		message("error","Go home",'/front/loginView.php');
 		die();
 	}
+	$username	= filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+	$password	= filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+	$password2	= filter_input(INPUT_POST, 'password2',FILTER_SANITIZE_STRING);
+	$type			= filter_input(INPUT_POST, 'type', FILTER_SANITIZE_STRING);
+	$email		= filter_input(INPUT_POST, 'email',FILTER_SANITIZE_EMAIL);
+	$type=='on'?$type=1:$type=0;
 	if($password!=$password2){
 		message("error","Passwords doesn't match",'/front/addUserView.php');
 		die();
 	}
-	$username	= filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
-	$password	= filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-	$password2	= filter_input(INPUT_POST, 'password2',FILTER_SANITIZE_STRING);
-	$type			= filter_input(INPUT_POST, 'type', FILTER_VALIDATE_BOOLEAN);
-	$email		= filter_input(INPUT_POST, 'email',FILTER_SANITIZE_EMAIL);
-#	$type=='on'?$type=1:$type=0;
-	if($username=='' || $password=='' || $email='' ){
+	if($username=='' || $password=='' || $email=='' ){
 		message("error","Fill all fields",'/front/addUserView.php');
 		die();
 	}

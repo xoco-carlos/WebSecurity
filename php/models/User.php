@@ -33,7 +33,7 @@
 			$this->db->ExecuteSQL($query);
 			$result=$this->db->LastID();		
 			return $result;
-			#return $query;
+#			return $query;
 		}
 		function updateName($NewUsername, $OldUsername){
 			$query="UPDATE users SET name='{$NewUsername}' WHERE name='{$OldUsername}';" ;
