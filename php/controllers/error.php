@@ -2,7 +2,7 @@
 <html>
 <body>
 
-<h1>Error: <?php echo$_REQUEST['mensaje'];?></h1>
-<a href="<?php echo$_REQUEST['referer'];die(); ?>">Back</a>
+<h1>Error: <?php echo filter_input(INPUT_GET, 'mensaje', FILTER_SANITIZE_STRING);?></h1>
+<a href="<?php echo filter_input(INPUT_GET, 'referer', FILTER_SANITIZE_STRING);die(); ?>">Back</a>
 </body>
 </html>
