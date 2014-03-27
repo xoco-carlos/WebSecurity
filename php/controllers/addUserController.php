@@ -22,48 +22,29 @@
 		message("error","Fill all fields",'/front/addUserView.php');
 		die();
 	}
-#	message("error",$username.' '.$password.' '.$email.' '.$type,'/front/addUserView.php');
-/*
-	echo "Name: {$username}";
-	echo "Pass: {$password}";
-	echo "mail {$email}";
-	echo "type: {$type}";*/
 	$user=new User();
    $view=new View();
 	if($user->isSign($username)==1){
 		$user->setName($username);
-		echo $username;
-		echo '</br>';
 		$user->setPassword($password);
-		echo $password;
-		echo '</br>';
 		$user->setEmail($email);
-		echo $email;
-		echo '</br>';
 		$user->setTipo($type);
-		echo $type;
-		echo '</br>';
 		$lastID=$user->insert();
-		echo $lastID;
-		echo '</br>';
 		$view->setUserID($lastID);
 		$order=1;
 		foreach($view->getAdminViews() as $value){
 			$view->setOrder($order);
 			$view->setViewID($value);
-			echo $view->insert();
-			echo $order++;
+			$view->insert();
+			$order++;
 		}
 		$view->getDB()->CloseConnection();
 		$user->getDB()->CloseConnection();
-		echo "Se agrego el usuario";
-	#	message("success","User created successfully","/front/");
-		#header('Location:'.$_SERVER["HTTP_REFERER"].'?mensaje=User '.$username.' created successfully');
+		message("success","User created successfully","/front/");
    }
 	else{
 		echo "El usuario ya existe";
-	#	message("error","User already exists","/front/loginView.php");
-	#	die();
-		#header('Location:'.$_SERVER["HTTP_REFERER"].'?mensaje=User '.$username.' already exists');
+		message("error","User already exists","/front/loginView.php");
+		die();
 	}
 ?>
