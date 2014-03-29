@@ -1,7 +1,7 @@
-#include"conexion.h"
+#include "conexion.h"
 #include <stdio.h>   
-#include<stdlib.h>   
-#include<malloc.h>   
+#include <stdlib.h>   
+#include <malloc.h>   
 #include <string.h>
 #include <assert.h>
 #include <iostream>
