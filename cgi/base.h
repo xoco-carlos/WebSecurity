@@ -13,6 +13,7 @@ class getBD{
     const char *GET_usBD();
     const char *GET_psBD();
     const char *GET_naBD();
+    const char *GET_coBD();
 
 };
 
@@ -37,6 +38,16 @@ const char  *getBD::GET_naBD(){
 
 
 const char  *c="proyect";
+return c;
+
+
+        }
+        
+const char  *getBD::GET_coBD(){
+
+
+
+const char  *c="localhost";
 return c;
 
 
