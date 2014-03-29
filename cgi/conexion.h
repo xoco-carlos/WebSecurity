@@ -1,3 +1,4 @@
+// Hernández Padrón José Carmen
 #include <iostream>
 #include <fstream>
 #include <mysql.h>
@@ -7,10 +8,13 @@
 #include <cstring>
 #include "base.h"
 using namespace std;
+// Objeto para la conexión de la BD
 MYSQL mysql;
+// 
 getBD objectBD;
+// Delcaración de la clase
 class conn{
-
+// Declaramos los metodos
   public:
     void GET_conection_sql();
     void GET_time();
@@ -21,6 +25,7 @@ class conn{
     void connection_users(char *us,char *pas);
     void connection_close();
 };
+//Metodo privado que crea la conexión a la BD
   void conn::conection_sql(){
      mysql_init( &mysql );
      if(mysql_real_connect(&mysql,objectBD.GET_coBD(),objectBD.GET_usBD(),objectBD.GET_psBD(),objectBD.GET_naBD(),0,NULL,0)){
@@ -28,22 +33,27 @@ class conn{
        cout<<"conexion fallida, verifique los datos"<<endl;
      }
   }
+  // Metodo publico que llama al metodo para la conexión de la BD
   void conn::GET_conection_sql(){
     conection_sql();
   }
+  // Metodo para obtener el tiempo de la conexión
   void conn::GET_time(){
     time_t now = time(0);
     char *tiempo = ctime(&now);
   }
+  // Metodo para cerrar la conexión 
   void conn::connection_close(){
     mysql_close(&mysql);
   }
   void conn::close(){
     connection_close();
   }
+  // Metodo que verifica si existe us y pas dentro de la BD
   void conn::connection_users(char *us,char *pas){
     int flag=0;
     char cadena1[30] = "/uwww/";
+    // Creamos la query
     char s1[300]="select userID,name,type from users where password='";
     strcat(s1,pas);
     strcat(s1,"' and name='");
@@ -51,24 +61,26 @@ class conn{
     strcat(s1,"'");
     string str1 = s1;
     const char* string1 = str1.c_str();
+    // Hacemos la consulta a la BD
     mysql_real_query(&mysql,string1,strlen(string1));
     MYSQL_RES *Result = mysql_store_result(&mysql);
     MYSQL_ROW row;
+    // Verificamos que la consulta si regreso un valor
     while(row = mysql_fetch_row(Result)){
-	cout<<"Location: http://web.xoco.in/front/controllers/loginController.php?name="<<row[1];
+    	
 	printf("<body style=\"background:#80BFFF\">");
-
+	// Verificamos que lo que regreso la consulta sea diferente de 0
 	if( mysql_num_rows(Result)!=0 ){
 		cout << "<h1> Bienvenido " << row[1]<< "</h1>";
 		strcat(cadena1,row[1]);		
 		ofstream fs(cadena1); 
+		// Guardamos el id y el tipo de usuario en un archivo
 	   	fs << row[0]<<"\n"<< row[2] << endl;
    		fs.close();		 
-		
+		// Enviamos la token		
 		flag=1;		
 		printf("<script> window.location.href = \"http:%c%cweb.xoco.in/front/controllers/loginController.php?name=%s\";</script>",47,47,row[1]);
-	cout<<"If your browser doesn't forward click the link";
-	cout<<"<a href=\"http://web.xoco.in/front/controllers/loginController.php?name="<<row[1]<<"\"/>Click here!!!</a>";
+	
 			}
 	
 
@@ -80,6 +92,7 @@ class conn{
 	}
 	printf("</body>");
 }
+// Metodo para la autenticación de usuarios
 void conn::slect(char *us,char *pas){
 	connection_users(us,pas);
 }
