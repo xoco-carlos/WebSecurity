@@ -1,4 +1,4 @@
-//Hernández Padrón José Carmen
+//Hernandez Padron Jose Carmen
 
 #include <iostream>
 #include <fstream>
@@ -18,14 +18,14 @@ class getBD{
     const char *GET_coBD();
 
 };
-//Método que regresa el nombre del usuario para conexión con la BD
+//Metodo que regresa el nombre del usuario para conexion con la BD
 const char  *getBD::GET_usBD(){
 
         const char  *c="root";
         return c;
 
         }
-//Método que regresa el password para conexión con la BD
+//Metodo que regresa el password para conexion con la BD
 const char  *getBD::GET_psBD(){
 
 
@@ -34,7 +34,7 @@ return c;
 
 
         }
-//Método que regresa el nombre de la BD para conexión con la BD
+//Metodo que regresa el nombre de la BD para conexion con la BD
 const char  *getBD::GET_naBD(){
 
 
