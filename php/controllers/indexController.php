@@ -1,4 +1,8 @@
 <?php
+/*
+* Autor: Xoco
+* Obtiene las vistas del usuario en turno
+*/
 	include_once dirname(__FILE__).('/../models/View.php');
 	include_once dirname(__FILE__).('/../models/Drupal.php');
 	session_start();
