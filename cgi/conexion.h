@@ -23,7 +23,7 @@ class conn{
 };
   void conn::conection_sql(){
      mysql_init( &mysql );
-     if(mysql_real_connect(&mysql,"localhost",objectBD.GET_usBD(),objectBD.GET_psBD(),objectBD.GET_naBD(),0,NULL,0)){
+     if(mysql_real_connect(&mysql,objectBD.GET_coBD(),objectBD.GET_usBD(),objectBD.GET_psBD(),objectBD.GET_naBD(),0,NULL,0)){
      }else{
        cout<<"conexion fallida, verifique los datos"<<endl;
      }
