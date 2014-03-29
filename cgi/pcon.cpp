@@ -1,4 +1,4 @@
-//Hernández Padrón José Carmen
+//Hernandez Padron Jose Carmen
 
 #include "conexion.h"
 #include <stdio.h>   
@@ -9,11 +9,11 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
-// Creamos un objeto para la conexión de la BD
+// Creamos un objeto para la conexion de la BD
 conn object;
 // main principal
 int main(){
-//Declaración de variables	
+//Declaracion de variables	
   int i=0;
   char *info;
   const char *cadena;
@@ -25,8 +25,8 @@ int main(){
   // Cabecera del contenido HTML
 	printf("Content-Type: text/html\n\n");
  	info=(char*)malloc(sizeof(char)*1000);
- 	cadena=getenv("CONTENT_LENGTH"); // Obtenemos el user y pass por el método POST
- 	longitud=strtod(cadena,NULL); // Tamaño de lo que recibimos por POST
+ 	cadena=getenv("CONTENT_LENGTH"); // Obtenemos el user y pass por el metodo POST
+ 	longitud=strtod(cadena,NULL); // Tamano de lo que recibimos por POST
 	//Guardamos en una cadena lo que recibimos por POST
 	for(i=0;i<longitud;i++){ 
 		fscanf(stdin,"%c",&info[i]);  
@@ -42,7 +42,7 @@ int main(){
 		ps=token;
 		break;
 	}
-	// Verificamos que los campos de user y pass no estén vacíos
+	// Verificamos que los campos de user y pass no esten vacios
 	if(strlen(us)>5 && strlen(ps)>5){
 		//Obtenemos el contenido de user
 		token = strtok(us , "="); 
@@ -60,7 +60,7 @@ int main(){
 			ps=token;
 			break;
 		}
-		// Verificamos que no se insertó código sql en user o pass
+		// Verificamos que no se inserto codigo sql en user o pass
 		if((strchr( us, '%' ))!=NULL || (strchr( us, '\'' ))!=NULL || (strchr( ps, '\'' ))!=NULL ){
 			flag=1;
 		}
@@ -79,7 +79,7 @@ int main(){
 		printf("<h1>No has ingresado datos en usuario o en password.</h1>");
  		printf("<a href=\"http:%c%cweb.xoco.in%cfront%cloginView.php\">Regresar<%ca>",47,47,47,47,47);
 	}
-	//Cerramos la conexión a la BD
+	//Cerramos la conexion a la BD
   object.close();
   
 }
