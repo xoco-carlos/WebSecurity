@@ -1,5 +1,9 @@
 <?php
-
+/*
+* Autor: Richard
+* Colaboradores: Xoco
+* Clase encargada de la comunicacion con el web service para servir las paginas web
+*/
 class Drupal{
 	public function getArticles() {
 	    // Get the arrays with all the articles.

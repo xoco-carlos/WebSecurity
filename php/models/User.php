@@ -1,4 +1,8 @@
 <?php
+/*
+* Autor: Xoco
+* Clase usuario permite la manipulacion de los usuarios, insercion, consulta y modificacion
+*/
 	include_once dirname(__FILE__).('/../config/MySQL.php');
 	class User{
 		private $name;

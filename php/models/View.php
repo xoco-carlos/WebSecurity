@@ -1,4 +1,8 @@
 <?php
+/*
+* Autor: Xoco
+* Clase que permite manipular las vistas que visualiza el usuario
+*/
 	include_once dirname(__FILE__) . '/../config/MySQL.php';
 	class View{
 		private $userID;
