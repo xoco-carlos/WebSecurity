@@ -1,15 +1,21 @@
 <?php
+/*
+* Autor: Jose Carmen
+* Colaboradores: Xoco, Richard 
+* Formulario para iniciar sesion en la aplicacion 
+*/
+/*Si existe una sesion activa redirige al index*/
 	include_once('includes/checks.php');
 	$numero=isLogged();
 	if($numero!=0){
-		header('Location: /front/');
+		header('Location: /index.php');
 	}
 ?>
 <html>
 <head> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
-<script src="js/sha1.js">/* SHA-256 JavaScript implementation */</script>
-<script src="js/utf8.js">/* SHA-256 JavaScript implementation */</script>
+<script src="js/sha1.js">/* Cifra el password antes de enviarlo */</script>
+<script src="js/utf8.js">/* Implementacionde utf8 para el manejo del passwor*/</script>
 </head> 
 <body style="background:#80BFFF">
 
@@ -29,7 +35,6 @@
       <br>
       <button type="button" onClick='formulario.pass.value = Sha1.hash(pass.value);document.formulario.submit();'>Enviar</button>
 
-<!--<input type="submit" value="Entrar"/>-->
 </blockquote>
 </TD>
 

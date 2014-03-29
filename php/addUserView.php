@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<?php
+/*
+* Autor: Xoco
+* Colaboradores:
+* Formulario para agregar nuevos usuarios a la base de datos 
+*/
+?>
 <html>
 	<head>
 		<meta charset="utf-8" />

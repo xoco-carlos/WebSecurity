@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <?php 
+/*
+* Autor: Xoco
+* Muestra las vistas asociadas al usuario en turno
+*/
+/* Revisa el usuario que accede a la pagina*/
 	include_once("controllers/indexController.php");
 	include_once("includes/checks.php");
 	$numero=isLogged();
@@ -15,7 +20,9 @@
 	<body>
 		
 		<div id="vertical-margin">
-	<?php include_once("includes/header.php");
+	<?php
+	/* Imprime las vistas en base al usuario que visita el sitio*/ 
+		include_once("includes/header.php");
 		if($numero==0){
 			printNodes(views());
 		}else{
