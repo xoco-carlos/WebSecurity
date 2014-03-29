@@ -1,4 +1,10 @@
 <?php
+	/*
+* Autor: Richard
+* Colaboradores: Denise
+* Muestra una lista de usuario con botones para realizar diversas modificaciones 
+*/
+	
 	include_once dirname(__FILE__).('/../models/User.php');
 	include_once dirname(__FILE__).('../models/User.php');
 	include_once dirname(__FILE__).('/../includes/alerts.php');

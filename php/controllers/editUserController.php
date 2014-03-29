@@ -1,8 +1,9 @@
 <?php
-	/*
-		Carmona Domínguez Ricardo Andrés
-	*/
-
+/*
+* Autor: Richard
+* Colaboradores:
+* Modifica ciertas caracteristicas de un usuario  
+*/
 	//Incluimos los archivos necesarios
 	include_once dirname(__FILE__).('/../models/User.php');
 	include_once dirname(__FILE__).('/../includes/alerts.php');
