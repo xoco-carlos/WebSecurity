@@ -18,14 +18,14 @@ class getBD{
     const char *GET_coBD();
 
 };
-//Metodo que regresa el nombre del usuario para conexión con la BD
+//Método que regresa el nombre del usuario para conexión con la BD
 const char  *getBD::GET_usBD(){
 
         const char  *c="root";
         return c;
 
         }
-//Metodo que regresa el password para conexión con la BD
+//Método que regresa el password para conexión con la BD
 const char  *getBD::GET_psBD(){
 
 
@@ -34,7 +34,7 @@ return c;
 
 
         }
-//Metodo que regresa el nombre del la BD para conexión con la BD
+//Método que regresa el nombre de la BD para conexión con la BD
 const char  *getBD::GET_naBD(){
 
 
