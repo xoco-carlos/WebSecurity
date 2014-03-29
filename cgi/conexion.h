@@ -4,7 +4,7 @@
 #include <string.h>
 #include <ctime>
 #include <fstream>
-#include<cstring>
+#include <cstring>
 #include "base.h"
 using namespace std;
 MYSQL mysql;
