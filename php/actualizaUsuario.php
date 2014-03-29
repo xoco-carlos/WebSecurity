@@ -1,3 +1,9 @@
+<!--
+Carmona Domínguez Ricardo Andrés
+Archivo dedicado a mostrar un formulario que dependiendo de la información recibida mostrará
+un formulario distinto para modificar la información de un usuario.
+
+-->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,6 +20,7 @@
         </div>
         </br></br></br>
 <?php
+	//Incluimos los archivos necesarios para el funcionamiento
 	include_once dirname(__FILE__).('/../models/User.php');
 	include_once("controllers/editUserController.php");
 	include_once('includes/checks.php');
@@ -24,10 +31,15 @@
 		message('error','You must login to edit views','/front/loginView.php');
 		die();
 	}
+	//Recibimos los datos necesarios para hacer las actualizaciones en la BD
 	$username	= filter_input(INPUT_POST, 'User', FILTER_SANITIZE_STRING);
 	$accion = filter_input(INPUT_POST, 'accion', FILTER_SANITIZE_STRING);
 	$activo = filter_input(INPUT_POST, 'activo', FILTER_SANITIZE_STRING);
+	
+	//Instaciamos un objeto del tipo usuario para poder hacer las modificaciones necesarias
 	$user=new User();
+	
+	//Dependiendo de la acción recibida, mostramos un formulario diferente. Enviamos los datos que el usuario introduzca y el tipo de acción
 	if($accion == 1){
 		
 	?>
