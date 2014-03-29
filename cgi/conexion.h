@@ -1,4 +1,5 @@
-// Hernandez Padron Jose Carmen
+// Autor: Hernandez Padron Jose Carmen
+// Colaboradores: Richard, Denise.
 #include <iostream>
 #include <fstream>
 #include <mysql.h>
@@ -88,6 +89,7 @@ class conn{
     }
 	if(flag==0){
 		printf("<h1>Usuario o password invalidos.</h1>");
+	//Si los datos no son válidos, regresa nuevamente a la vista de registro
 		printf("<a href=\"http:%c%cweb.xoco.in%cfront%cloginView.php\">Regresar<%ca>",47,47,47,47,47,63,47);
 	}
 	printf("</body>");
