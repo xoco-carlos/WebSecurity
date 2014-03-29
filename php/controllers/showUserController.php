@@ -1,5 +1,5 @@
 <?php
-	/*
+/*
 * Autor: Richard
 * Colaboradores: Denise
 * Muestra una lista de usuario con botones para realizar diversas modificaciones 

@@ -1,7 +1,7 @@
 <?php
 /*
 * Autor: Richard
-* Colaboradores:
+* Colaboradores:Denise
 * Modifica ciertas caracteristicas de un usuario  
 */
 	//Incluimos los archivos necesarios
