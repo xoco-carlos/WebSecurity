@@ -35,6 +35,7 @@
 			return $result;
 #			return $query;
 		}
+		//Funciones que permiten actualizar datos especificos de un usuario en la BD
 		function updateName($NewUsername, $OldUsername){
 			$query="UPDATE users SET name='{$NewUsername}' WHERE name='{$OldUsername}';" ;
 			$this->db->ExecuteSQL($query);
