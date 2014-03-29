@@ -1,9 +1,18 @@
 <?php
+/*
+* Autor: Richard
+* Colaboradores:
+* Muestra el contenido de un articulo asociado a un nodo especificado. Incluye un formulario encargado de enviar comentarios.
+*/
+
 	include_once('models/Drupal.php');
 	$articulo = new Drupal();
 	$nodo = $_GET['art'];
 ?>
 <!DOCTYPE html>
+<!--
+	Recibimos el nodo por metodo GET, utilizamos funciones de la clase drupal para mostrar el contenido 
+-->
 <html lang="en">
     <head>
         <meta charset="utf-8" />
