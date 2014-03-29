@@ -1,4 +1,5 @@
-//Hernandez Padron Jose Carmen
+//Autor: Hernandez Padron Jose Carmen
+//Colaboradores: Denise, Richard
 
 #include "conexion.h"
 #include <stdio.h>   
@@ -77,7 +78,8 @@ int main(){
    }
 	else{
 		printf("<h1>No has ingresado datos en usuario o en password.</h1>");
- 		printf("<a href=\"http:%c%cweb.xoco.in%cfront%cloginView.php\">Regresar<%ca>",47,47,47,47,47);
+ 		//Regresa a vista de registro:
+		printf("<a href=\"http:%c%cweb.xoco.in%cfront%cloginView.php\">Regresar<%ca>",47,47,47,47,47);
 	}
 	//Cerramos la conexion a la BD
   object.close();
