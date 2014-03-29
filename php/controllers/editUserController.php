@@ -1,4 +1,9 @@
 <?php
+	/*
+		Carmona Domínguez Ricardo Andrés
+	*/
+
+	//Incluimos los archivos necesarios
 	include_once dirname(__FILE__).('/../models/User.php');
 	include_once dirname(__FILE__).('/../includes/alerts.php');
    include_once dirname(__FILE__).('/../includes/checks.php');
@@ -7,11 +12,13 @@
 	   message("error","Go home",'/front/loginView.php');
 		die();
    }
-
-	$accion			= filter_input(INPUT_POST, 'accion', FILTER_SANITIZE_STRING); #Accion=1 Modifica Username. Accion=2 Modifica contraseña. Accion=3 Borra usuario.
+	//Recibimos datos por post, sanitizando cadenas
+	$accion	= filter_input(INPUT_POST, 'accion', FILTER_SANITIZE_STRING); #Accion=1 Modifica Username. Accion=2 Modifica contraseña. Accion=3 Borra usuario.
 	$activo = filter_input(INPUT_POST, 'activo', FILTER_SANITIZE_STRING);
   if($activo==1){
 	$user=new User();
+	
+	//Edicion del nombre de usuario y contraseña
    if($accion==1){
 	$NewUsername	= filter_input(INPUT_POST, 'NewUsername', FILTER_SANITIZE_STRING);
 	$OldUsername	= filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
@@ -35,6 +42,7 @@
 		";
 		}
    }
+   //Edición de la contraseña de un usuario
    elseif ($accion==2){
 	$username	= filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
 	$password	= filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
@@ -57,6 +65,7 @@
 		";
 	}
    }
+   //Usuario especificado será eliminado de la BD
    elseif ($accion==3){
 	$username	= filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
 	$user->deleteUser($username);
@@ -67,6 +76,6 @@
 		</form>
 		";
    }
-   	$user->getDB()->CloseConnection();
+   	$user->getDB()->CloseConnection(); //Cerramos la conexión a la BD
 }
 ?>
