@@ -14,7 +14,7 @@
 		message("error","Go home",'/front/loginView.php');
 		die();
 	}
-
+	//Función que muestra en una tabla los registros de Username de los usuarios con opciones de Administración de usuarios (Modificar Datos, Modificar Contraseña o Eliminar cuenta)
 	function printUsers(){
 	   $user=new User();
 	   $users=$user->getUsers();
@@ -58,7 +58,7 @@
 		</TR>
 		";
 	   }
-	   $user->getDB()->CloseConnection();
+	   $user->getDB()->CloseConnection(); //Cierra conexión de la Base de datos
 	}
 	
 ?>
