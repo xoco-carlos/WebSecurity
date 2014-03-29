@@ -1,4 +1,4 @@
-// Hernández Padrón José Carmen
+// Hernandez Padron Jose Carmen
 #include <iostream>
 #include <fstream>
 #include <mysql.h>
@@ -8,11 +8,11 @@
 #include <cstring>
 #include "base.h"
 using namespace std;
-// Objeto para la conexión de la BD
+// Objeto para la conexion de la BD
 MYSQL mysql;
 // 
 getBD objectBD;
-// Delcaración de la clase
+// Delcaracion de la clase
 class conn{
 // Declaramos los metodos
   public:
@@ -25,7 +25,7 @@ class conn{
     void connection_users(char *us,char *pas);
     void connection_close();
 };
-//Metodo privado que crea la conexión a la BD
+//Metodo privado que crea la conexion a la BD
   void conn::conection_sql(){
      mysql_init( &mysql );
      if(mysql_real_connect(&mysql,objectBD.GET_coBD(),objectBD.GET_usBD(),objectBD.GET_psBD(),objectBD.GET_naBD(),0,NULL,0)){
@@ -33,16 +33,16 @@ class conn{
        cout<<"conexion fallida, verifique los datos"<<endl;
      }
   }
-  // Metodo publico que llama al metodo para la conexión de la BD
+  // Metodo publico que llama al metodo para la conexion de la BD
   void conn::GET_conection_sql(){
     conection_sql();
   }
-  // Metodo para obtener el tiempo de la conexión
+  // Metodo para obtener el tiempo de la conexion
   void conn::GET_time(){
     time_t now = time(0);
     char *tiempo = ctime(&now);
   }
-  // Metodo para cerrar la conexión 
+  // Metodo para cerrar la conexion 
   void conn::connection_close(){
     mysql_close(&mysql);
   }
@@ -92,7 +92,7 @@ class conn{
 	}
 	printf("</body>");
 }
-// Metodo para la autenticación de usuarios
+// Metodo para la autenticacion de usuarios
 void conn::slect(char *us,char *pas){
 	connection_users(us,pas);
 }
