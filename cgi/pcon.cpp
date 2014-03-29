@@ -1,3 +1,5 @@
+//Hernández Padrón José Carmen
+
 #include "conexion.h"
 #include <stdio.h>   
 #include <stdlib.h>   
@@ -7,9 +9,11 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
+// Creamos un objeto para la conexión de la BD
 conn object;
-
+// main principal
 int main(){
+//Declaración de variables	
   int i=0;
   char *info;
   const char *cadena;
@@ -18,17 +22,19 @@ int main(){
   char *us,*sus; 
   char *ps,*sps;
   int flag=0;
+  // Cabecera del contenido HTML
 	printf("Content-Type: text/html\n\n");
  	info=(char*)malloc(sizeof(char)*1000);
- 	cadena=getenv("CONTENT_LENGTH");
- 	longitud=strtod(cadena,NULL);
-	
+ 	cadena=getenv("CONTENT_LENGTH"); // Obtenemos el user y pass por el metoso POST
+ 	longitud=strtod(cadena,NULL); // Tamaño de lo que recibimos por POST
+	//Guardamos en una cadena lo que recibimos por POST
 	for(i=0;i<longitud;i++){ 
 		fscanf(stdin,"%c",&info[i]);  
 	}
 
 	i=longitud;
 	info[i]='\0';
+	// Parseamos la cadena para separar los campos de user y pass
 	token = strtok(info , "&");  
 	us=token;      
 	while (token != NULL){
@@ -36,7 +42,9 @@ int main(){
 		ps=token;
 		break;
 	}
+	// Verificamos que los campos de user y pass no esten vacios
 	if(strlen(us)>5 && strlen(ps)>5){
+		//Obtenemos el contenido de user
 		token = strtok(us , "="); 
 		sus=token;
 		while (token != NULL){
@@ -44,6 +52,7 @@ int main(){
 			us=token;
 			break;
 		}
+		//Obtenemos el conetenido de pass
 		token = strtok(ps , "=");  
 		sps=token;
  		while (us != NULL){
@@ -51,6 +60,7 @@ int main(){
 			ps=token;
 			break;
 		}
+		// Verificamos que no se incerto código sql en user o pass
 		if((strchr( us, '%' ))!=NULL || (strchr( us, '\'' ))!=NULL || (strchr( ps, '\'' ))!=NULL ){
 			flag=1;
 		}
@@ -58,9 +68,10 @@ int main(){
 	else{
 		flag=1;
 	}
+	// Nos conectamos a la BD
 	object.GET_conection_sql();
 	object.GET_time();
-
+	// Verificamos que si se leyeron los campos user y pass
 	if((flag==0 && strcmp(sus,"user")==0)&&(strcmp(sps,"pass")==0)&& us!=NULL && ps!=NULL){
 		object.slect(us,ps);
    }
@@ -68,6 +79,7 @@ int main(){
 		printf("<h1>No has ingresado datos en usuario o en password.</h1>");
  		printf("<a href=\"http:%c%cweb.xoco.in%cfront%cloginView.php\">Regresar<%ca>",47,47,47,47,47);
 	}
+	//Cerramos la conexión a la BD
   object.close();
   
 }
