@@ -25,7 +25,7 @@ int main(){
   // Cabecera del contenido HTML
 	printf("Content-Type: text/html\n\n");
  	info=(char*)malloc(sizeof(char)*1000);
- 	cadena=getenv("CONTENT_LENGTH"); // Obtenemos el user y pass por el metoso POST
+ 	cadena=getenv("CONTENT_LENGTH"); // Obtenemos el user y pass por el método POST
  	longitud=strtod(cadena,NULL); // Tamaño de lo que recibimos por POST
 	//Guardamos en una cadena lo que recibimos por POST
 	for(i=0;i<longitud;i++){ 
@@ -42,7 +42,7 @@ int main(){
 		ps=token;
 		break;
 	}
-	// Verificamos que los campos de user y pass no esten vacios
+	// Verificamos que los campos de user y pass no estén vacíos
 	if(strlen(us)>5 && strlen(ps)>5){
 		//Obtenemos el contenido de user
 		token = strtok(us , "="); 
@@ -60,7 +60,7 @@ int main(){
 			ps=token;
 			break;
 		}
-		// Verificamos que no se incerto código sql en user o pass
+		// Verificamos que no se insertó código sql en user o pass
 		if((strchr( us, '%' ))!=NULL || (strchr( us, '\'' ))!=NULL || (strchr( ps, '\'' ))!=NULL ){
 			flag=1;
 		}
