@@ -1,7 +1,13 @@
 <?php
+/*
+* Autor: Xoco, Richard
+* Regresa las vistas asociadas al usuario indicado.
+*/
 	include_once dirname(__FILE__).('/../models/View.php');
 	include_once dirname(__FILE__).('/../models/Drupal.php');
-	session_start();
+	session_start(); //Iniciamos una sesión
+	
+	//Dependiendo del tipo de usuario, se ejecutara una función que regresara sus vistas asociadas
 	function views(){
 		$vista = new View();
 		if(isset($_SESSION['userID'])){
@@ -16,10 +22,14 @@
 			return $vista->getAdminViews();
 		}
 	}
+	
+	//Imprime en formato de casillas 3x3 las vistas que podra ver un usuario sin cuenta
 	function printNodes($array){
 		$drupal = new Drupal();
 		$i=0;
-		foreach($array as $node){
+		foreach($array as $node){ // Este for es el encargado de dar un orden a las vistas, imprimiendolas por columnas de 3
+			//El codigo html obtendra sus estilos de las archivos incluidos en el index.php
+			//Se utilizan a la vez funciones del modelo Drupal que obtendran los datos del servidor drupal para mostrarlos en las casillas
 			if($i==0){
 				echo '<div class="column ui-sortable">';
 			}
@@ -47,6 +57,9 @@
 			$i++;
 		}
 	}
+	
+	//Esta funcion actua de forma similar a la de un usuario no logeado, con la diferencia que esta muestra un boton que permite
+	//modificar una noticia asociada a una casilla especifica.
 	function printNodesLogged($array){
 		$drupal = new Drupal();
 		$i=0;
