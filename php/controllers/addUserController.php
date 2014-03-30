@@ -53,11 +53,13 @@
 		/*Cierra conexion a la base de datos*/
 		$view->getDB()->CloseConnection();
 		$user->getDB()->CloseConnection();
-		message("success","User created successfully","/front/");
+		//message("success","User created successfully","/front/");
+		message("success","User created successfully","/index.php");//stovar
    }
 	else{
 		echo "El usuario ya existe";
-		message("error","User already exists","/front/loginView.php");
+		//message("error","User already exists","/front/loginView.php");
+		message("error","User already exists","/loginView.php");//stovar
 		die();
 	}
 ?>

@@ -26,6 +26,6 @@
 			<input name="type" type="checkbox"/>
 			<input type="submit" name="submit" value="Submit" />
 		</form>
-		<a href="index.php">Regresar</a>
+		<a href="index.php">Regresar</a><!--stovar-->
 	</body>
 </html>
