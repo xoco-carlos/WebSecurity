@@ -13,9 +13,11 @@
 	$result=$view->updateView();
 	$view->getDB()->CloseConnection();
 	if($result){
-		message('success','View has been updated successfully','/front/');
+		//message('success','View has been updated successfully','/front/');
+		message('success','View has been updated successfully','/index.php');//stovar
 	}
 	else{
-		message('error','View already selected','/front/');
+		//message('error','View already selected','/front/');
+		message('error','View already selected','/index.php');//stovar
 	}
 ?>
