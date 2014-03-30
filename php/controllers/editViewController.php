@@ -1,4 +1,8 @@
 <?php
+/*
+Denis: Edita la vista de los usuarios cuando éstos hicieron alguna modificación.
+*/
+
 	include_once('../includes/alerts.php');
    include_once('../models/View.php');
 	session_start();
