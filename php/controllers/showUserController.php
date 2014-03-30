@@ -6,7 +6,6 @@
 */
 	
 	include_once dirname(__FILE__).('/../models/User.php');
-	include_once dirname(__FILE__).('../models/User.php');
 	include_once dirname(__FILE__).('/../includes/alerts.php');
 	include_once dirname(__FILE__).('/../includes/checks.php');
 	$numero=isLogged();
