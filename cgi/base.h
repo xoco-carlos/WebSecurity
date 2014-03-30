@@ -21,7 +21,7 @@ class getBD{
 //Metodo que regresa el nombre del usuario para conexion con la BD
 const char  *getBD::GET_usBD(){
 
-        const char  *c="root";
+        const char  *c="web";
         return c;
 
         }
@@ -29,7 +29,7 @@ const char  *getBD::GET_usBD(){
 const char  *getBD::GET_psBD(){
 
 
-const char  *c="becarios";
+const char  *c="-Web123Pro-";
 return c;
 
 
@@ -54,4 +54,3 @@ return c;
 
 
         }
-
