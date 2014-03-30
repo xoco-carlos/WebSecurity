@@ -92,16 +92,16 @@ class conn{
 	   	fs << row[0]<<"\n"<< row[2]<<"\n"<< rows << endl;
    		fs.close();		 
 		flag=1;		
-		printf("<script> window.location.href = \"http:%c%cfront.xoco.in%cloginController.php?token=%s\";</script>",47,47,47,rows);
+		printf("<script> window.location.href = \"http:%c%cfront.xoco.in%ccontrollers%cloginController.php?token=%s\";</script>",47,47,47,47,rows);
 
-		strcat(cadena1,row[1]);		
-		ofstream fs(cadena1); 
+		///strcat(cadena1,row[1]);		
+		//ofstream fs(cadena1); 
 		// Guardamos el id y el tipo de usuario en un archivo
-	   	fs << row[0]<<"\n"<< row[2] << endl;
-   		fs.close();		 
+	   	//fs << row[0]<<"\n"<< row[2] << endl;
+   		//fs.close();		 
 		// Enviamos la token		
-		flag=1;		
-		printf("<script> window.location.href = \"http:%c%cweb.xoco.in/front/controllers/loginController.php?name=%s\";</script>",47,47,row[1]);
+		//flag=1;		
+		//printf("<script> window.location.href = \"http:%c%cweb.xoco.in/front/controllers/loginController.php?name=%s\";</script>",47,47,row[1]);
 	
 			}
 
@@ -111,7 +111,7 @@ class conn{
 	if(flag==0){
 		printf("<h1>Usuario o password invalidos.</h1>");
 	//Si los datos no son válidos, regresa nuevamente a la vista de registro
-		printf("<a href=\"http:%c%cweb.xoco.in%cfront%cloginView.php\">Regresar<%ca>",47,47,47,47,47,63,47);
+		printf("<a href=\"http:%c%cfront.xoco.in/loginView.php\">Regresar<%ca>",47,47,47);
 	}
 	printf("</body>");
 }
