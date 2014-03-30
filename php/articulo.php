@@ -23,25 +23,15 @@
 	<H3><?php echo $articulo->getAutor($nodo); ?></H3>
 	<p><?php echo $articulo->getContenido($nodo); ?></p>
 	<img src=' <?php echo $articulo->getImagen($nodo); ?>'/>
+	<form action="recibearticulo.php" method="post" id="form1">
+			  <!-- <label class="nodo" for="element_1">Numero de nodo </label> -->
+           <input type="hidden" name="nodo" width="48" height="48" value=<?php echo $nodo ?> readonly>
+           <label class="comentario" for="element_1">Comentario </label>
+           <!--<input type="textarea" name="comentario" width="48" height="48">-->
+           <textarea rows="4" cols="50" name="comentario" form="form1">
+           </textarea>
+           <input type="submit" value="Submit">
+	</form>
     </body>
 </html>
-<?php
-/*$handler = curl_init("http://drupal.xoco.in/drupal7/?q=pbsccomentariosinsertasinsql/5/Comentarios%20desde%20php%205");
-$response = curl_exec ($handler);
-curl_close($handler);
-echo $response;*/
 
-// Crear un nuevo recurso cURL
-$ch = curl_init();
-
-// Establecer URL y otras opciones apropiadas
-curl_setopt($ch, CURLOPT_URL, "http://drupal.xoco.in/drupal7/?q=pbsccomentariosinsertasinsql/5/Comentarios%20desde%20php%206");
-curl_setopt($ch, CURLOPT_HEADER, 0);
-
-// Capturar la URL y pasarla al navegador
-curl_exec($ch);
-
-// Cerrar el recurso cURL y liberar recursos del sistema
-curl_close($ch);
-?>
-?>
