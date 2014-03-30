@@ -26,6 +26,11 @@ function pbsccomentarios_menu() {
                 'page callback' => 'pbsccomentarios_inserta_sinsql',
                 'access callback' => TRUE,
         );
+	 $items['pbsccomentariosnodo'] = array(
+                'title' => 'PBSC Comentarios nodo',
+                'page callback' => 'pbsccomentarios_nodo',
+                'access callback' => TRUE,
+        );
 	return $items;
 }
 /** 
@@ -167,6 +172,144 @@ function pbsccomentarios_inserta_sinsql($numNodo='',$comentarioNodo='') {
 
 	return $comment->nid;
 }
+function pbsccomentarios_nodo($numNodo='') {
+        //header('Content-type: text/plain; charset=UTF-8');
+        //header('Content-Disposition: inline');
+        // http://stackoverflow.com/questions/267546/correct-content-type-http-header-for-json
+        // http://www.iana.org/assignments/media-types/media-types.xhtml
+        header('Content-Type: application/json');
+        //return '<p>' . t("Hola Modulo PBSC") . '</p>';
+
+
+
+        //$uid = 1;
+        //$result = db_query('SELECT n.nid, n.title, n.created
+        //FROM {node} n WHERE n.uid = :uid', array(':uid' => $uid));
+
+        // Fetch next row as a stdClass object.
+        //$record = $result->fetchObject();
+
+        // Fetch next row as an associative array.
+        //$record = $result->fetchAssoc();
+
+        // Fetch data from specific column from next row
+        // Defaults to first column if not specified as argument
+        //$data = $result->fetchColumn(1); // Grabs the title from the next row
+
+        // Retrieve all records into an indexed array of stdClass objects.
+        //$result->fetchAll();
+
+        // Retrieve all records as stdObjects into an associative array
+        // keyed by the field in the result specified.
+        // (in this example, the title of the node)
+        //$result->fetchAllAssoc('title');
+
+        // Retrieve a 2-column result set as an associative array of field 1 => field 2.
+        //$result->fetchAllKeyed();
+
+        // Also good to note that you can specify which two fields to use
+        // by specifying the column numbers for each field
+        //$result->fetchAllKeyed(0,2); // would be nid => created
+
+        //$result->fetchAllKeyed(1,0); // would be title => nid
+        // Retrieve a 1-column result set as one single array.
+
+        //$result->fetchCol();
+        // Column number can be specified otherwise defaults to first column
+        //$result->fetchCol($db_column_number=1);
+
+        // Count the number of rows
+        //$result->rowCount();
+
+
+        //Creamos el query object y extendemos el object para que use un paginador por defecto
+         //$query = db_select('node','n')->extend('PagerDefault');
+         //Construimos nuestra query indicando el nú de elementos que
+         //queremos que aparezcan por pána.
+        /* $query
+         ->condition('type','article')
+         ->fields('n',array('title'))
+         ->limit(5);
+        */
+        // editar nodo pestana de exportar nodo para ver todos los campos
+        // http://172.16.16.135/drupal/?q=node/1/node_export#overlay-context=node/1%3Fq%3Dnode/1
+        // https://drupal.org/files/er_db_schema_drupal_7.png
+        // http://172.16.16.135/drupal/?q=sean
+        // http://172.16.16.135/drupal/?q=json1
+        // http://172.16.16.135/drupal/?q=stovar
+        // http://172.16.16.135/drupal/?q=hola/1
+        // http://172.16.16.135/drupal/?q=pbsc
+        // http://www.mousewheel.net/database-drupal-api-examples
+        // https://api.drupal.org/api/drupal/includes!database!database.inc/function/db_select/7
+        // http://drupal.stackexchange.com/questions/41409/query-with-db-select-to-select-node-by-id-and-join-field-and-terms
+        // http://stackoverflow.com/questions/10934048/innerjoin-query-in-drupal-7
+        // http://www.lullabot.com/blog/article/simplify-your-code-drupal-7s-database-api
+        // http://www.wdtutorials.com/2012/09/25/drupal-7-database-query-examples#.UzKKFvl5O50
+        $query = db_select('node', 'n');
+        $query->join('field_data_body', 'f', 'n.nid=f.entity_id');
+        $query->join('file_managed', 'm', 'n.nid=m.fid');
+        $query->join('node_revision', 'j', 'n.uid=j.uid');
+        $query->join('users', 'u', 'j.uid=u.uid');
+        //$query->fields('n', array('nid','title','created'))
+        $query->fields('n', array('title','created','changed','nid'))
+                ->fields('f', array('body_value'))
+                ->fields('m', array('filename','uri'))
+                ->fields('u', array('name'))
+                //->condition('n.nid', 1)
+                ->condition('n.nid', $numNodo)
+                ->condition('n.status', 1)
+                ->orderBy('n.created', 'DESC')
+                ->addTag('node_access');
+
+        //https://api.drupal.org/api/drupal/includes!database!database.inc/function/db_select/7
+        $result = $query->execute()->fetchAssoc();
+
+        //generando json
+        $values = array(
+                'title' => $result['title'],
+                'contenido' => $result['body_value'],
+                'Image' => $result['uri'],
+                'Post date' => format_date($result['created'],'custom','j M Y'),
+                'comentarios' => format_date($result['changed'],'custom','j M Y'),
+                'autor' => $result['name'],
+                'Nid' => $result['nid']
+        );
+        // http://php.net/manual/es/function.json-encode.php
+        // http://stackoverflow.com/questions/10377570/how-to-use-json-encode
+        // http://stackoverflow.com/questions/15066976/format-echo-json-encode
+        echo json_encode($values);
+
+
+ //$result= $query ->execute();
+ //Iteramos sobre los resultados para contruir la cadena que devolveremos
+ //$output = '';//orig
+ //$output = '[<br>';
+//$i=0;
+ //foreach ($result as $row) {
+//if ($i = 0 ){
+ //$output .= '{"';
+        //$output .= $row->title."</br>";//orig
+        //$output .= $row->title;
+ //$output .= '"}'."</br>";
+//}else{
+ //$output .= '{"';
+        //$output .= $row->title."</br>";//orig
+        //$output .= $row->title;
+ //$output .= '"},'."</br>";
+//}
+//$i++;
+ //}
+ //$output .= ']';
+ //LLamamos a la funcióe tematizació aplicamos el tema de paginació
+ //nuestra salida y retornamos
+ //$output .= theme('pager');
+ //return $output;
+
+//return '<H1>Inicio</h1>'. $output  . '<H1>Inicio</h1>' . json_encode($values);
+return '<H1>Inicio</h1>'. json_encode($values) . '<H1>Inicio</h1>';
+
+}
+
 /**
  * Muestra la ayuda del modulo
  */
