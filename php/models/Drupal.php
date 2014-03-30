@@ -5,8 +5,14 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 * Colaboradores: Xoco
 * Clase encargada de la comunicacion con el web service para servir las paginas web
+=======
+* Colaboradores:
+* Funciones que se conectan al servidor de drupal para hacer un vaciado de su contenido y obtener
+  datos especificos de un nodo indicado.
+>>>>>>> a3944903d61e2df213014e6c55f33e74b4cbae4a
 =======
 * Colaboradores:
 * Funciones que se conectan al servidor de drupal para hacer un vaciado de su contenido y obtener
