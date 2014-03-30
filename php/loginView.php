@@ -23,7 +23,7 @@
 <font color="blue"><h1>Login</h1></font>
 <hr>
 <TABLE WIDTH=200 HEIGHT=150 >
-
+<tr>
 <TD VALIGN=MIDDLE  WIDTH=100  BGCOLOR="Silver">
 <blockquote>
 <form name="formulario" method="post" action="/cgi/get.exe">
@@ -37,7 +37,12 @@
 
 </blockquote>
 </TD>
-
+</tr>
+<tr>
+<td>
+<a href="index.php">Regresar</a>
+</td>
+</tr>
 </TABLE>
 </form>
 </body>

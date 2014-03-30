@@ -31,7 +31,8 @@
 			$result=array();
 			$query='SELECT viewID FROM views WHERE userID="'.$user.'" ORDER BY orden;';
 #			$result=$this->db->ExecuteSQL($query);
-			foreach($this->db->ExecuteSQL($query) as $value){
+			//foreach($this->db->ExecuteSQL($query) as $value){
+			foreach($result as $value){ //stovar
 				$result[]=$value['viewID'];
 			}
 			#$this->db->CloseConnection();

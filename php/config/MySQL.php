@@ -17,8 +17,8 @@ class MySQL {
 	
 	function __construct(){
 		$this->database = 'proyect';
-		$this->username = 'root';
-		$this->password = 'becarios';
+		$this->username = 'web';
+		$this->password = '-Web123Pro-';
 		$this->hostname = '127.0.0.1'.':'.'3306';
 		
 		$this->Connect();

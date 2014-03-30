@@ -1,32 +1,9 @@
 <?php
 /*
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 * Autor: Xoco
 * Obtiene las vistas del usuario en turno
-=======
 * Autor: Xoco, Richard
 * Regresa las vistas asociadas al usuario indicado.
->>>>>>> a3944903d61e2df213014e6c55f33e74b4cbae4a
-=======
-* Autor: Xoco, Richard
-* Regresa las vistas asociadas al usuario indicado.
->>>>>>> a3944903d61e2df213014e6c55f33e74b4cbae4a
-=======
-* Autor: Xoco, Richard
-* Regresa las vistas asociadas al usuario indicado.
->>>>>>> a3944903d61e2df213014e6c55f33e74b4cbae4a
-=======
-* Autor: Xoco, Richard
-* Regresa las vistas asociadas al usuario indicado.
->>>>>>> a3944903d61e2df213014e6c55f33e74b4cbae4a
-=======
-* Autor: Xoco, Richard
-* Regresa las vistas asociadas al usuario indicado.
->>>>>>> a3944903d61e2df213014e6c55f33e74b4cbae4a
 */
 	include_once dirname(__FILE__).('/../models/View.php');
 	include_once dirname(__FILE__).('/../models/Drupal.php');

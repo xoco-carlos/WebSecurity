@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 // Hernandez Padron Jose Carmen
-=======
 // Autor: Hernandez Padron Jose Carmen
 // Colaboradores: Richard, Denise.
->>>>>>> a3944903d61e2df213014e6c55f33e74b4cbae4a
 #include <iostream>
 #include <fstream>
 #include <mysql.h>
@@ -59,11 +56,8 @@ class conn{
   // Metodo que verifica si existe us y pas dentro de la BD
   void conn::connection_users(char *us,char *pas){
     int flag=0;
-<<<<<<< HEAD
     char cadena1[40] = "/uwww/";
-=======
     char cadena1[30] = "/uwww/";
->>>>>>> a3944903d61e2df213014e6c55f33e74b4cbae4a
     // Creamos la query
     char s1[300]="select userID,name,type from users where password='";
     strcat(s1,pas);
@@ -83,7 +77,6 @@ class conn{
 	// Verificamos que lo que regreso la consulta sea diferente de 0
 	if( mysql_num_rows(Result)!=0 ){
 		cout << "<h1> Bienvenido " << row[1]<< "</h1>";
-<<<<<<< HEAD
 		// Guardamos el id y el tipo de usuario en un archivo
                 std::string  rest=row[1];
                 int i=0;
@@ -101,7 +94,6 @@ class conn{
 		flag=1;		
 		printf("<script> window.location.href = \"http:%c%cfront.xoco.in%cloginController.php?token=%s\";</script>",47,47,47,rows);
 
-=======
 		strcat(cadena1,row[1]);		
 		ofstream fs(cadena1); 
 		// Guardamos el id y el tipo de usuario en un archivo
@@ -111,7 +103,6 @@ class conn{
 		flag=1;		
 		printf("<script> window.location.href = \"http:%c%cweb.xoco.in/front/controllers/loginController.php?name=%s\";</script>",47,47,row[1]);
 	
->>>>>>> a3944903d61e2df213014e6c55f33e74b4cbae4a
 			}
 
 
