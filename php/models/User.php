@@ -1,6 +1,5 @@
 <?php
 /*
-<<<<<< HEAD
 * Autor: Xoco
 * Clase usuario permite la manipulacion de los usuarios, insercion, consulta y modificacion
 */
