@@ -1,6 +1,7 @@
 #Denise Betancourt Sandoval
 
 ### Geolocalizador (GeoIP)
+## Requerimientos:
 >aptitude install libapache2-mod-geoip
 >vi /etc/apache2/mods-available/geoip.conf
 

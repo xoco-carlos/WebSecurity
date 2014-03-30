@@ -1,4 +1,8 @@
 <?php
+/*
+* Autor: Xoco
+* Muestra las posibles vistas seleccionables para el usuario
+*/
 	function content($old,$ord){
 		include_once dirname(__FILE__).('/../models/Drupal.php');
 		#include_once('../models/Drupal.php');

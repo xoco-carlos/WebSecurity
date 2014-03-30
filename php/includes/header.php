@@ -1,6 +1,12 @@
 <?php
+/*
+* Autor: Xoco, Richard
+* Colaboradores:
+* Muestra un menu de opciones en la parte superior de la pagina dependiendo del usuario logeado
+*/
 	session_start();
 	if(isset($_SESSION['priv'])){
+		//Usuario administrador
 		if($_SESSION['priv']==1){
 			$option='
 				<div class="barra">
@@ -15,6 +21,7 @@
 			'; 
 		}
 		else{
+		//Usuario mortal
 			$option='
 				<div class="barra">
 					<ul id="tope">
@@ -27,6 +34,7 @@
 		}
 	}
 	else{
+		//Usuario sin cuenta
 		$option='
 			<div class="barra">
             <ul id="tope">

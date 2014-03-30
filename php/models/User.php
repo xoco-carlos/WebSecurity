@@ -1,8 +1,16 @@
 <?php
 /*
+<<<<<<< HEAD
 * Autor: Xoco
 * Clase usuario permite la manipulacion de los usuarios, insercion, consulta y modificacion
 */
+=======
+* Autor:Xoco
+* Colaboradores:Denise
+*
+*/
+
+>>>>>>> a3944903d61e2df213014e6c55f33e74b4cbae4a
 	include_once dirname(__FILE__).('/../config/MySQL.php');
 	class User{
 		private $name;
@@ -39,6 +47,7 @@
 			return $result;
 #			return $query;
 		}
+		//Funciones que permiten actualizar datos especificos de un usuario en la BD
 		function updateName($NewUsername, $OldUsername){
 			$query="UPDATE users SET name='{$NewUsername}' WHERE name='{$OldUsername}';" ;
 			$this->db->ExecuteSQL($query);

@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+/*
+* Autor: Xoco
+* Pagina que imprime mensajes de exito
+*/
+?>
 <html>
 <body>
 

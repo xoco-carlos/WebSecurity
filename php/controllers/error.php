@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+/*
+* Autor: Xoco
+* Despliega mensajes de error
+*/
+?>
 <html>
 <body>
 

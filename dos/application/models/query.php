@@ -1,3 +1,4 @@
+<?
 class querymysql {
         protected $BD;
         protected $Id;
