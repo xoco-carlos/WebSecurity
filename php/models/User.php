@@ -2,10 +2,13 @@
 /*
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 * Autor: Xoco
 * Clase usuario permite la manipulacion de los usuarios, insercion, consulta y modificacion
 */
 =======
+=======
+>>>>>>> a3944903d61e2df213014e6c55f33e74b4cbae4a
 =======
 >>>>>>> a3944903d61e2df213014e6c55f33e74b4cbae4a
 * Autor:Xoco
@@ -14,6 +17,9 @@
 */
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> a3944903d61e2df213014e6c55f33e74b4cbae4a
+=======
 >>>>>>> a3944903d61e2df213014e6c55f33e74b4cbae4a
 =======
 >>>>>>> a3944903d61e2df213014e6c55f33e74b4cbae4a
